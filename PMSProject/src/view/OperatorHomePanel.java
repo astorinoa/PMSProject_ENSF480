@@ -23,6 +23,8 @@ public class OperatorHomePanel extends JPanel{
 	
 	public OperatorHomePanel(Operator op, OperatorListener listener) {
 		super();
+		
+		this.setBackground(new Color(176, 196, 222));
 		this.setLayout(new BorderLayout(0, 0));
 		
 		JPanel top =  new JPanel();
