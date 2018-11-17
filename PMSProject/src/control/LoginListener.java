@@ -41,7 +41,7 @@ public class LoginListener implements ActionListener{
 	 * communicates with backend to search for what user type is trying to login
 	 */
 	public void userSearch() {
-		if (!frame.getUserID().getText().equals("")) {
+		if (!frame.getuseremail().getText().equals("")) {
 		//	frame.writeObject("searchUserID");
 		//	frame.writeObject(frame.getuserEmail().getText()));
 			//dont need write object but this is getting the text from the GUI
