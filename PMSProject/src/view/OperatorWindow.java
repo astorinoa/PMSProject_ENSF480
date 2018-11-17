@@ -57,5 +57,6 @@ public class OperatorWindow extends JFrame {
 		homePanel = new OperatorHomePanel(op, listener);
 		contentPane.add(homePanel, "Home");
 	}
+}	
 	
 	

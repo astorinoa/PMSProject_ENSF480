@@ -19,6 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 import control.Course;
 import control.Operator;
+import control.OperatorListener;
 
 public class RemoveDocPanel extends JPanel {
 	private DefaultListModel<String> model;
@@ -60,20 +61,20 @@ public class RemoveDocPanel extends JPanel {
 		middle.add(scroll, BorderLayout.CENTER);
 
 		// need to fill documents jlist with documents 
-		try {
+		//try {
 	
 
 		//	prof.setCourses((ArrayList<Course>) objIn.readObject());
 		//	for(int i = 0; i < prof.getCourses().size(); i++)
-			{
+		//	{
 		//		model.addElement(prof.getCourses().get(i).toString());
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch(ClassNotFoundException e)
-		{
-			System.err.println(e.getMessage());
-		}
+		//	}
+		//} catch (IOException e) {
+		//	e.printStackTrace();
+		//} catch(ClassNotFoundException e)
+		//{
+		//	System.err.println(e.getMessage());
+		//}
 		
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(176, 196, 222));

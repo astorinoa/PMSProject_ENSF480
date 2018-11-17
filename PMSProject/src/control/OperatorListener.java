@@ -6,9 +6,12 @@ import java.awt.event.ActionListener;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
 import view.LoginWindow;
-import view.OperatorWindow;
 import view.OperatorHomePanel;
+import view.OperatorWindow;
 
 
 /**
@@ -17,14 +20,14 @@ import view.OperatorHomePanel;
  * @author Rae McPhail, Alexa Astorino, Shreya Patel
  *
  */
-public class OperatorListener implements ActionListener{
+public class OperatorListener implements ActionListener, ListSelectionListener{
 	private OperatorWindow frame;
 
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
 	 */
-	public OperatorListener(Window jf) {
+	public OperatorListener(OperatorWindow jf) {
 		frame = jf;
 	}
 
@@ -49,5 +52,11 @@ public class OperatorListener implements ActionListener{
 			//show the add remove frame
 		}
 	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }
+
