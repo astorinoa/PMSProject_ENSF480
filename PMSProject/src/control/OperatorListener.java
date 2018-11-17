@@ -37,17 +37,17 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 	@Override
 	public void actionPerformed(ActionEvent a) {
 		//if button pressed is add document
-		if(a.getSource() == frame.getAdd())
+		if(a.getSource() == frame.getOperatorHomePanel.getAdd())
 		{
 			//show the add document frame
 		}
 		//if button pressed is update document
-		else if(a.getSource() == frame.getUpdate())
+		else if(a.getSource() == frame.getOperatorHomePanel.getUpdate())
 		{
 			//show the update document frame
 		}
 		//if button pressed is remove document
-		else if(a.getSource() == frame.getRemove())
+		else if(a.getSource() == frame.getOperatorHomePanel.getRemove())
 		{
 			//show the add remove frame
 		}

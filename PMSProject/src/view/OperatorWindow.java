@@ -87,6 +87,11 @@ public class OperatorWindow extends JFrame {
 		return removeDocPanel;
 	}
 	
+	public CardLayout getRemoveDocPanel()
+	{
+		return cardLayout;
+	}
+	 
 	 
 }	
 	
