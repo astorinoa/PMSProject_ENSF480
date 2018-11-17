@@ -1,9 +1,11 @@
 package main;
 
+import view.LoginWindow;
+
 public class PMS {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		LoginWindow login = new LoginWindow();
 	}
 
 }

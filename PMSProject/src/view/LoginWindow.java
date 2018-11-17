@@ -28,12 +28,10 @@ import javax.swing.border.CompoundBorder;
  */
 public class LoginWindow extends JFrame {
 
-	private JTextField userID;
+	private JTextField userEmail;
 	private JPasswordField passwordField;
 	private JButton login;
 	private JButton guest;
-	private ObjectInputStream objIn;
-	private ObjectOutputStream objOut;
 	private LoginListener listener;
 
 	/**
@@ -41,10 +39,8 @@ public class LoginWindow extends JFrame {
 	 * @param objOut to communicate over socket
 	 * @param objIn to communicate over socket
 	 */
-	public LoginWindow(ObjectOutputStream objOut, ObjectInputStream objIn) {
+	public LoginWindow() {
 		
-		this.objIn = objIn;
-		this.objOut = objOut;
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		listener = new LoginListener(this, objOut, objIn);
 		
@@ -90,9 +86,9 @@ public class LoginWindow extends JFrame {
 		userLabel.setForeground(new Color(25, 25, 112));
 		userLabel.setFont(new Font("PingFang TC", Font.PLAIN, 20));
 		one.add(userLabel);
-		userID = new JTextField(15);
-		userID.setName("userID");
-		one.add(userID);
+		userEmail = new JTextField(15);
+		userEmail.setName("userEmail");
+		one.add(userEmail);
 		
 		JPanel two = new JPanel ();
 		two.setBackground(new Color(176, 196, 222));
@@ -136,10 +132,10 @@ public class LoginWindow extends JFrame {
 	}	
 	
 	/**
-	 * @return the userID
+	 * @return the userEmail
 	 */
-	public JTextField getUserID() {
-		return userID;
+	public JTextField getuserEmail() {
+		return userEmail;
 	}
 	
 	/**
@@ -149,30 +145,5 @@ public class LoginWindow extends JFrame {
 		return passwordField;
 	}
 	
-	/**
-	 * @param o the Object that is being communicated
-	 */
-	public void writeObject(Object o){
-		try {
-			objOut.writeObject(o);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * the Object that is being communicated
-	 * @return Object read
-	 */
-	public Object readObject() {
-		try {
-			return objIn.readObject();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
 	
 }
