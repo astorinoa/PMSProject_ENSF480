@@ -1,4 +1,4 @@
-package control;
+package model;
 import java.lang.*;
 public class Operator {
 	private String email;
