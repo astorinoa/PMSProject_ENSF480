@@ -20,12 +20,12 @@ import javax.swing.border.EmptyBorder;
 import control.Course;
 import control.Operator;
 
-public class AddDocPanel extends JPanel {
+public class RemoveDocPanel extends JPanel {
 	private DefaultListModel<String> model;
 	private JList <String> documents;
 	private JButton back;
 
-	public AddDocPanel(Operator op, OperatorListener listener) {
+	public RemoveDocPanel(Operator op, OperatorListener listener) {
 		super();
 		
 		this.setBackground(new Color(176, 196, 222));
@@ -49,8 +49,6 @@ public class AddDocPanel extends JPanel {
 		middle.setBackground(new Color(176, 196, 222));
 		middle.setLayout(new BorderLayout(0, 0));
 		middle.setBorder(new EmptyBorder(25, 25, 25, 25));
-		JLabel warning = new JLabel("WARNING: As soon as a document is clicked on the"
-				+ "list below, it will be deleted!");
 		JLabel docLbl = new JLabel("Document Inventory:");
 		docLbl.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		docLbl.setForeground(new Color(25, 25, 112));

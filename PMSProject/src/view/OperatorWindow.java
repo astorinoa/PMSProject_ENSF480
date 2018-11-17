@@ -43,7 +43,7 @@ public class OperatorWindow extends JFrame {
 	
 	public OperatorWindow(Operator op) {
 		this.op = op;
-		listener = new OperatorListener();
+		listener = new OperatorListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
 		cardLayout = new CardLayout();
@@ -53,7 +53,9 @@ public class OperatorWindow extends JFrame {
 		contentPane.setLayout(cardLayout);
 		this.setContentPane(contentPane);	
 		
-		createOperatorHomePanel(contentPane);
+		//create operator home panel
+		homePanel = new OperatorHomePanel(op, listener);
+		contentPane.add(homePanel, "Home");
 	}
 	
 	

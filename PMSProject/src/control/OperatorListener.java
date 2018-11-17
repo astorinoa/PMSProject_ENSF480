@@ -1,13 +1,15 @@
 package control;
 
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 import view.LoginWindow;
-import view.ProfCourseWindow;
-import view.StudentCourseWindow;
+import view.OperatorWindow;
+import view.OperatorHomePanel;
+
 
 /**
  * creates an object of type OperatorListener which implements ActionListener and is used to 
@@ -16,7 +18,7 @@ import view.StudentCourseWindow;
  *
  */
 public class OperatorListener implements ActionListener{
-	private OperatorHomePanel frame;
+	private OperatorWindow frame;
 
 	/**
 	 * Constructor for the listener

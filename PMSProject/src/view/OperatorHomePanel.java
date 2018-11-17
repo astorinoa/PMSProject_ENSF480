@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import control.Operator;
+import control.OperatorListener;
 
 public class OperatorHomePanel extends JPanel{
 	private JButton logout;
