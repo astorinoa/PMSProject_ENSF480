@@ -81,6 +81,10 @@ public class RemoveDocPanel extends JPanel {
 		bottom.setLayout(new BoxLayout(bottom, BoxLayout.X_AXIS));
 		bottom.setBorder(new EmptyBorder(0, 20, 10, 80));
 		
+		JLabel warning = new JLabel("	The document you click will be removed");
+		warning.setFont(new Font("PingFang TC", Font.PLAIN, 15));
+		warning.setForeground(new Color(25, 25, 112));
+		
 		back = new JButton();
 		back.setForeground(new Color(25, 25, 112));
 		back.setFont(new Font("PingFang TC", Font.PLAIN, 15));
@@ -89,6 +93,7 @@ public class RemoveDocPanel extends JPanel {
 		back.addActionListener(listener);
 		
 		bottom.add(back);
+		bottom.add(warning);
 		
 		this.add(top, BorderLayout.NORTH);
 		this.add(middle, BorderLayout.CENTER);
