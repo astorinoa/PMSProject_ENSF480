@@ -15,4 +15,8 @@ public class Operator {
 		email = e;
 		password = p;
 	}	
+	
+	public String getEmail() {
+		return email;
+	}
 }

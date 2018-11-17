@@ -35,7 +35,7 @@ public class OperatorHomePanel extends JPanel{
 		opEmail.setFont(new Font("PingFang TC", Font.PLAIN, 14));
 		opEmail.setForeground(new Color(25, 25, 112));
 		top.add(date, BorderLayout.WEST);
-		top.add(profName, BorderLayout.EAST);
+		top.add(opEmail, BorderLayout.EAST);
 
 		
 		logout = new JButton();
