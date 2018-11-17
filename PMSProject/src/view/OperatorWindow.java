@@ -12,7 +12,6 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import control.Operator;
 import control.OperatorListener;
 
 import java.awt.*;
@@ -55,6 +54,28 @@ public class OperatorWindow extends JFrame {
 		homePanel = new OperatorHomePanel(listener);
 		contentPane.add(homePanel, "Home");
 	}
+	
+	public OperatorHomePanel getOperatorHomePanel()
+	{
+		return homePanel;
+	}
+	
+	public AddDocPanel getAddDocPanel()
+	{
+		return addDocPanel;
+	}
+	
+	public UpdateDocPanel getUpdateDocPanel()
+	{
+		return updateDocPanel;
+	}
+	
+	public RemoveDocPanel getRemoveDocPanel()
+	{
+		return removeDocPanel;
+	}
+	
+	 
 }	
 	
 	
