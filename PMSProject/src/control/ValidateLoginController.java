@@ -12,15 +12,12 @@ public class ValidateLoginController extends Driver{
 	}
 	
 	public String readCheck(String email, String password){
-		System.out.println(email);
-		System.out.println(password);
 		RegisteredBuyer buyer = searchRegUser(email, password);
 		if (buyer != null) {
 			return "RegisteredBuyer";
 		}
 		Operator operate = searchOperator(email, password);
 		if (operate != null) {
-			System.out.println("*****************");
 			return "Operator";
 		}
 		return "NoUser";

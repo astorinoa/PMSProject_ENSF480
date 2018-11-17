@@ -48,7 +48,6 @@ public class LoginListener implements ActionListener{
 			char [] tmp = frame.getPasswordField().getPassword();
 			String pass = new String (tmp);
 			String type = validate.readCheck(frame.getuserEmail().getText(), pass);
-			System.out.println(type);
 			if(type.equals("RegisteredBuyer")) {
 	//			RegisteredWindow r = new RegisteredWindow();
 			}
