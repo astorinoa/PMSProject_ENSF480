@@ -42,7 +42,7 @@ public class AddDocPanel extends JPanel {
 		middle.setBackground(new Color(176, 196, 222));
 		middle.setLayout(new BorderLayout(0, 0));
 		middle.setBorder(new EmptyBorder(25, 25, 25, 25));
-		JLabel docLbl = new JLabel("Document Inventory:");
+		JLabel docLbl = new JLabel("Documents Pending Approval:");
 		docLbl.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		docLbl.setForeground(new Color(25, 25, 112));
 		middle.add(docLbl, BorderLayout.NORTH);
@@ -73,6 +73,10 @@ public class AddDocPanel extends JPanel {
 		bottom.setLayout(new BoxLayout(bottom, BoxLayout.X_AXIS));
 		bottom.setBorder(new EmptyBorder(0, 20, 10, 80));
 		
+		JLabel warning = new JLabel("	The document you click will be approved");
+		warning.setFont(new Font("PingFang TC", Font.PLAIN, 15));
+		warning.setForeground(new Color(25, 25, 112));
+		
 		back = new JButton();
 		back.setForeground(new Color(25, 25, 112));
 		back.setFont(new Font("PingFang TC", Font.PLAIN, 15));
@@ -81,6 +85,7 @@ public class AddDocPanel extends JPanel {
 		back.addActionListener(listener);
 		
 		bottom.add(back);
+		bottom.add(warning);
 		
 		this.add(top, BorderLayout.NORTH);
 		this.add(middle, BorderLayout.CENTER);
