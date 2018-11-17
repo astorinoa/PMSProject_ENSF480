@@ -54,8 +54,28 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 			//show the add remove frame
 			frame.getCardLayout().show(frame.getContentPane(), "Remove Documents");
 		}
-	}
+		
+		//if back button on add document panel pressed 
+		else if(a.getSource() == frame.getAddDocPanel().getBack())
+		{
+			//show the home panel
+			frame.getCardLayout().show(frame.getContentPane(), "Home");	
+		}
+	
+		//if back button on add document panel pressed 
+		else if(a.getSource() == frame.getUpdateDocPanel().getBack())
+		{
+			//show the home panel
+			frame.getCardLayout().show(frame.getContentPane(), "Home");	
+		}
 
+		//if back button on add document panel pressed 
+		else if(a.getSource() == frame.getRemoveDocPanel().getBack())
+		{
+			//show the home panel
+			frame.getCardLayout().show(frame.getContentPane(), "Home");
+		}
+	
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		// TODO Auto-generated method stub
