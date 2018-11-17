@@ -53,7 +53,7 @@ public class LoginWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblLoginToDl = new JLabel("Login to D2L");
+		JLabel lblLoginToDl = new JLabel("Publication Management System");
 		lblLoginToDl.setForeground(new Color(25, 25, 112));
 		lblLoginToDl.setHorizontalAlignment(SwingConstants.CENTER);
 		lblLoginToDl.setFont(new Font("PingFang TC", Font.PLAIN, 38));
@@ -62,20 +62,23 @@ public class LoginWindow extends JFrame {
 		JPanel loginInfo = new JPanel ();
 		loginInfo.setBackground(new Color(176, 196, 222));
 		loginInfo.setLayout(new BoxLayout(loginInfo, BoxLayout.PAGE_AXIS));
-		loginInfo.setBorder(new CompoundBorder(new EmptyBorder(40, 20, 40, 20), new MatteBorder(2, 2, 2, 2, (Color) new Color(25, 25, 112))));
+		loginInfo.setBorder(new CompoundBorder(new EmptyBorder(20, 20, 40, 20), new MatteBorder(2, 2, 2, 2, (Color) new Color(25, 25, 112))));
+		
+		JLabel loginLabel = new JLabel("Login");
+		loginLabel.setForeground(new Color(25, 25, 112));
+		loginLabel.setFont(new Font("PingFang TC", Font.PLAIN, 25));
 		
 		JPanel one = new JPanel ();
 		one.setBackground(new Color(176, 196, 222));
 		one.setLayout(new FlowLayout());
 		one.setBorder(new EmptyBorder(20, 0, 0, 0));
-		JLabel userLabel = new JLabel("   User ID:");
+		JLabel userLabel = new JLabel("   Email:");
 		userLabel.setForeground(new Color(25, 25, 112));
 		userLabel.setFont(new Font("PingFang TC", Font.PLAIN, 20));
 		one.add(userLabel);
 		userID = new JTextField(15);
 		userID.setName("userID");
 		one.add(userID);
-		
 		
 		JPanel two = new JPanel ();
 		two.setBackground(new Color(176, 196, 222));
@@ -102,6 +105,7 @@ public class LoginWindow extends JFrame {
 		login.addActionListener(listener);
 		forButton.add(login);
 		
+		loginInfo.add(loginLabel);
 		loginInfo.add(one);
 		loginInfo.add(two);
 		loginInfo.add(forButton);
