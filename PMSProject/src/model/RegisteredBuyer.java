@@ -1,16 +1,16 @@
 package model;
-import java.lang.*;
-public class Operator {
+
+public class RegisteredBuyer {
 	private String email;
 	private String password;
 	private int id;
 	
 	/**
-	 * Constructor for the operator
+	 * Constructor for the RegisteredBuyer
 	 * @param e is the operator's email address
 	 * @param p is the operator's password
 	 */
-	public Operator(int id, String e, String p) {
+	public RegisteredBuyer(int id, String e, String p) {
 		this.id = id;
 		email = e;
 		password = p;
