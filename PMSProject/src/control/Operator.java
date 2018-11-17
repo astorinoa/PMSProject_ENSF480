@@ -12,7 +12,5 @@ public class Operator {
 	public Operator(String e, String p ) {
 		email = e;
 		password = p;
-	}
-	
-	
+	}	
 }
