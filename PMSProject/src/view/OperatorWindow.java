@@ -65,6 +65,9 @@ public class OperatorWindow extends JFrame {
 		//create remove document panel
 		removeDocPanel = new RemoveDocPanel(listener);
 		contentPane.add(removeDocPanel, "Remove Documents");
+		
+		this.pack();
+		this.setVisible(true);
 	}
 	
 	public OperatorHomePanel getOperatorHomePanel()

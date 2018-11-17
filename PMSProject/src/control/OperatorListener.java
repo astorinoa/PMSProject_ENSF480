@@ -37,22 +37,28 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 	@Override
 	public void actionPerformed(ActionEvent a) {
 		//if add button on operator home panel pressed is add document
-		if(a.getSource() == frame.getOperatorHomePanel.getAdd())
+		if(a.getSource() == frame.getOperatorHomePanel().getAdd())
 		{
 			//show the add document frame
 			frame.getCardLayout().show(frame.getContentPane(), "Add Documents");
 		}
 		//if update button on operator home panel pressed is update document
-		else if(a.getSource() == frame.getOperatorHomePanel.getUpdate())
+		else if(a.getSource() == frame.getOperatorHomePanel().getUpdate())
 		{
 			//show the update document frame
 			frame.getCardLayout().show(frame.getContentPane(), "Update Documents");
 		}
 		//if remove button on operator home panel pressed is remove document
-		else if(a.getSource() == frame.getOperatorHomePanel.getRemove())
+		else if(a.getSource() == frame.getOperatorHomePanel().getRemove())
 		{
 			//show the add remove frame
 			frame.getCardLayout().show(frame.getContentPane(), "Remove Documents");
+		}
+		//if logout button on operator home panel pressed
+		else if(a.getSource() == frame.getOperatorHomePanel().getLogout()) 
+		{
+			//exit program
+			System.exit(1);
 		}
 		
 		//if back button on add document panel pressed 
@@ -75,6 +81,7 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 			//show the home panel
 			frame.getCardLayout().show(frame.getContentPane(), "Home");
 		}
+	}	
 	
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {

@@ -49,15 +49,17 @@ public class LoginListener implements ActionListener{
 			String pass = new String (tmp);
 			String type = validate.readCheck(frame.getuserEmail().getText(), pass);
 			if(type.equals("RegisteredBuyer")) {
+				frame.setVisible(false);
 	//			RegisteredWindow r = new RegisteredWindow();
 			}
 			else if(type.equals("Operator"))
 			{
+				frame.setVisible(false);
 				OperatorWindow p = new OperatorWindow();
 			}
 			else if(type.equals("NoUser"))
 			{
-				JOptionPane.showMessageDialog(null, "Error: User ID does not match anyone in the record, please try again.", 
+				JOptionPane.showMessageDialog(null, "Error: User email and/or password does not match anyone in the PMS, please try again.", 
 						"Error Message", JOptionPane.ERROR_MESSAGE);
 			}
 
