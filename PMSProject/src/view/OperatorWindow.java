@@ -53,6 +53,18 @@ public class OperatorWindow extends JFrame {
 		//create operator home panel
 		homePanel = new OperatorHomePanel(listener);
 		contentPane.add(homePanel, "Home");
+		
+		//create add document panel
+		addDocPanel = new AddDocPanel(listener);
+		contentPane.add(addDocPanel, "Add Documents");
+		
+		//create update document panel
+		updateDocPanel = new UpdateDocPanel(listener);
+		contentPane.add(updateDocPanel, "Update Documents");
+		
+		//create remove document panel
+		removeDocPanel = new RemoveDocPanel(listener);
+		contentPane.add(removeDocPanel, "Remove Documents");
 	}
 	
 	public OperatorHomePanel getOperatorHomePanel()
