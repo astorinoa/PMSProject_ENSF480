@@ -107,4 +107,9 @@ public class OperatorHomePanel extends JPanel{
 		return remove;
 	}
 	
+	public JButton getLogout()
+	{
+		return logout;
+	}
+	
 }
