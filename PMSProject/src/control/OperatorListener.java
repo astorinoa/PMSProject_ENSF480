@@ -40,16 +40,19 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 		if(a.getSource() == frame.getOperatorHomePanel.getAdd())
 		{
 			//show the add document frame
+			frame.getCardLayout().show(frame.getContentPane(), "Add Documents");
 		}
 		//if update button on operator home panel pressed is update document
 		else if(a.getSource() == frame.getOperatorHomePanel.getUpdate())
 		{
 			//show the update document frame
+			frame.getCardLayout().show(frame.getContentPane(), "Update Documents");
 		}
 		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getOperatorHomePanel.getRemove())
 		{
 			//show the add remove frame
+			frame.getCardLayout().show(frame.getContentPane(), "Remove Documents");
 		}
 	}
 
