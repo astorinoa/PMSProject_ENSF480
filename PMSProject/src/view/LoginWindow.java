@@ -42,7 +42,7 @@ public class LoginWindow extends JFrame {
 	public LoginWindow() {
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		listener = new LoginListener(this, objOut, objIn);
+		listener = new LoginListener(this);
 		
 		setBounds(100, 100, 450, 300);
 		JPanel contentPane = new JPanel();
