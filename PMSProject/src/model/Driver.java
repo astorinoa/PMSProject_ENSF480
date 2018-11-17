@@ -4,7 +4,7 @@ import java.sql.*;
 
 /**
  * Enables connection to the database
- * @author Dylan Gordon, Shreya Patel, Alexa Astorino
+ * @author Shreya Patel, Alexa Astorino, Rae Mcphail
  *
  */
 public class Driver {
@@ -13,11 +13,11 @@ public class Driver {
 	public String databaseName = "pms_ensf480";
 	
 	
-	public String connectionInfo = "jdbc:mysql://localhost:3306/D2LDatabase?useSSL=false",  
+	public String connectionInfo = "jdbc:mysql://localhost:3306/pms_ensf480?useSSL=false",  
 			  login          = "root",
 			  password       = "HelloWorld";
 		
-	String docTable = "document", operatorTable = "operator", orderTable = "order",
+	protected String docTable = "document", operatorTable = "operator", orderTable = "order",
 			promoTable = "promotion", regTable = "registered_buyer";
 	
 	/**

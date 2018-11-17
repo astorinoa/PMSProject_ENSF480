@@ -5,9 +5,10 @@ import java.awt.event.ActionListener;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
+
+import model.RegisteredBuyer;
 import view.LoginWindow;
-import view.ProfCourseWindow;
-import view.StudentCourseWindow;
+import view.OperatorWindow;
 
 /**
  * creates an object of type LoginListner which implements ActionListener and is used to 
@@ -44,34 +45,16 @@ public class LoginListener implements ActionListener{
 	 */
 	public void userSearch() {
 		if (!frame.getuserEmail().getText().equals("")) {
-	
-			String type = (String) validate.readCheck(frame.getuserEmail().getText(), frame.getPasswordField().getPassword().toString());
-			if(type.equals("Student")) {
-				Student student = (Student) frame.readObject();
-				char [] temp = frame.getPasswordField().getPassword();
-				String check = new String(temp);
-				if (check.equals(student.getPassword())) {
-					frame.setVisible(false);
-					StudentCourseWindow s = new StudentCourseWindow(student, objOut, objIn);
-				}	
-				else {			
-					JOptionPane.showMessageDialog(null, "Error: Password is incorrect, please try again.", 
-							"Error Message", JOptionPane.ERROR_MESSAGE);
-				}
+			char [] tmp = frame.getPasswordField().getPassword();
+			String pass = new String (tmp);
+			String type = validate.readCheck(frame.getuserEmail().getText(), pass);
+			System.out.println(type);
+			if(type.equals("RegisteredBuyer")) {
+	//			RegisteredWindow r = new RegisteredWindow();
 			}
-			else if(type.equals("Prof"))
+			else if(type.equals("Operator"))
 			{
-				Prof prof = (Prof) frame.readObject();
-				char [] temp = frame.getPasswordField().getPassword();
-				String check = new String(temp);
-				if (check.equals(prof.getPassword())) {
-					frame.setVisible(false);
-					ProfCourseWindow p = new ProfCourseWindow(prof, objOut, objIn);
-				}
-				else {			
-					JOptionPane.showMessageDialog(null, "Error: Password is incorrect, please try again.", 
-							"Error Message", JOptionPane.ERROR_MESSAGE);
-				}
+				OperatorWindow p = new OperatorWindow();
 			}
 			else if(type.equals("NoUser"))
 			{
