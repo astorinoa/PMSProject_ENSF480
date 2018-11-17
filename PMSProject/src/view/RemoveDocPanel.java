@@ -94,4 +94,9 @@ public class RemoveDocPanel extends JPanel {
 		this.add(bottom, BorderLayout.SOUTH);
 		
 	}
+	
+	public JButton getBack()
+	{
+		return back;
+	}
 }

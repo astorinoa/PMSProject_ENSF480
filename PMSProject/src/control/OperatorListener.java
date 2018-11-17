@@ -36,20 +36,23 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent a) {
-		//if button pressed is add document
-		if(a.getSource() == frame.getAdd())
+		//if add button on operator home panel pressed is add document
+		if(a.getSource() == frame.getOperatorHomePanel.getAdd())
 		{
 			//show the add document frame
+			frame.getCardLayout().show(frame.getContentPane(), "Add Documents");
 		}
-		//if button pressed is update document
-		else if(a.getSource() == frame.getUpdate())
+		//if update button on operator home panel pressed is update document
+		else if(a.getSource() == frame.getOperatorHomePanel.getUpdate())
 		{
 			//show the update document frame
+			frame.getCardLayout().show(frame.getContentPane(), "Update Documents");
 		}
-		//if button pressed is remove document
-		else if(a.getSource() == frame.getRemove())
+		//if remove button on operator home panel pressed is remove document
+		else if(a.getSource() == frame.getOperatorHomePanel.getRemove())
 		{
 			//show the add remove frame
+			frame.getCardLayout().show(frame.getContentPane(), "Remove Documents");
 		}
 	}
 
