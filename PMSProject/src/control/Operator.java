@@ -1,15 +1,17 @@
 package control;
 import java.lang.*;
 public class Operator {
-	private string email;
-	private string password;
+	private String email;
+	private String password;
+	private int id;
 	
 	/**
 	 * Constructor for the operator
 	 * @param e is the operator's email address
 	 * @param p is the operator's password
 	 */
-	public Operator(String e, String p ) {
+	public Operator(int id, String e, String p) {
+		this.id = id;
 		email = e;
 		password = p;
 	}	
