@@ -30,6 +30,7 @@ public class LoginWindow extends JFrame {
 	private JTextField userID;
 	private JPasswordField passwordField;
 	private JButton login;
+	private JButton guest;
 	private ObjectInputStream objIn;
 	private ObjectOutputStream objOut;
 	private LoginListener listener;
@@ -53,11 +54,23 @@ public class LoginWindow extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblLoginToDl = new JLabel("Publication Management System");
-		lblLoginToDl.setForeground(new Color(25, 25, 112));
-		lblLoginToDl.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLoginToDl.setFont(new Font("PingFang TC", Font.PLAIN, 38));
-		contentPane.add(lblLoginToDl, BorderLayout.NORTH);
+		JLabel lblLoginToPMS = new JLabel("Publication Management System");
+		lblLoginToPMS.setForeground(new Color(25, 25, 112));
+		lblLoginToPMS.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLoginToPMS.setFont(new Font("PingFang TC", Font.PLAIN, 38));
+		contentPane.add(lblLoginToPMS, BorderLayout.NORTH);
+		
+		JPanel forGuestButton = new JPanel();
+		forGuestButton.setBackground(new Color(176, 196, 222));
+		forGuestButton.setLayout(new FlowLayout());
+		forGuestButton.setBorder(new EmptyBorder(0, 20, 30, 20));
+		guest = new JButton();
+		guest.setForeground(new Color(25, 25, 112));
+		guest.setFont(new Font("PingFang TC", Font.PLAIN, 20));
+		guest.setText("Conintue as Guest Buyer");
+		guest.addActionListener(listener);
+		forGuestButton.add(guest);
+		contentPane.add(forGuestButton, BorderLayout.SOUTH);
 		
 		JPanel loginInfo = new JPanel ();
 		loginInfo.setBackground(new Color(176, 196, 222));
@@ -100,7 +113,6 @@ public class LoginWindow extends JFrame {
 		login = new JButton();
 		login.setForeground(new Color(25, 25, 112));
 		login.setFont(new Font("PingFang TC", Font.PLAIN, 20));
-		
 		login.setText("Login");
 		login.addActionListener(listener);
 		forButton.add(login);
