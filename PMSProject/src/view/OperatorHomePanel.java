@@ -88,6 +88,19 @@ public class OperatorHomePanel extends JPanel{
 		this.add(bottom, BorderLayout.SOUTH);
 		}	
 	
+	public JButton getAdd()
+	{
+		return add;
+	}
 	
+	public JButton getUpdate()
+	{
+		return update;
+	}
+	
+	public JButton getRemove()
+	{
+		return remove;
+	}
 	
 }

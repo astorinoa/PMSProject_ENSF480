@@ -17,14 +17,16 @@ import view.StudentCourseWindow;
  */
 public class LoginListener implements ActionListener{
 	private LoginWindow frame;
+	private ValidateLoginController validate;
 
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
 	 */
 
-	public LoginListener(LoginWindow jf) {
+	public LoginListener(LoginWindow jf){
 		frame = jf;
+		validate = new ValidateLoginController();
 	}
 
 	/**
@@ -41,12 +43,9 @@ public class LoginListener implements ActionListener{
 	 * communicates with backend to search for what user type is trying to login
 	 */
 	public void userSearch() {
-		if (!frame.getuseremail().getText().equals("")) {
-		//	frame.writeObject("searchUserID");
-		//	frame.writeObject(frame.getuserEmail().getText()));
-			//dont need write object but this is getting the text from the GUI
-
-			String type = (String) frame.readObject();
+		if (!frame.getuserEmail().getText().equals("")) {
+	
+			String type = (String) validate.readCheck(frame.getuserEmail().getText(), frame.getPasswordField().getPassword().toString());
 			if(type.equals("Student")) {
 				Student student = (Student) frame.readObject();
 				char [] temp = frame.getPasswordField().getPassword();
