@@ -6,10 +6,12 @@ import java.awt.Component;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import control.Operator;
 
@@ -37,14 +39,11 @@ public class OperatorHomePanel extends JPanel{
 		top.add(date, BorderLayout.WEST);
 		top.add(opEmail, BorderLayout.EAST);
 
-		
-		logout = new JButton();
-		logout.setForeground(new Color(25, 25, 112));
-		logout.setFont(new Font("PingFang TC", Font.PLAIN, 15));
-		logout.setAlignmentX(Component.CENTER_ALIGNMENT);
-		logout.setText("Logout");
-		logout.addActionListener(listener);
-	
+		JPanel middle = new JPanel();
+		middle.setBackground(new Color(176, 196, 222));
+		middle.setLayout(new BoxLayout(middle, BoxLayout.Y_AXIS));
+		middle.setBorder(new EmptyBorder(40, 100, 0, 100));
+			
 		add = new JButton();
 		add.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		add.setForeground(new Color(25, 25, 112));
@@ -66,7 +65,29 @@ public class OperatorHomePanel extends JPanel{
 		remove.setAlignmentX(Component.CENTER_ALIGNMENT);
 		remove.setText("Remove Documents");
 		remove.addActionListener(listener);
-	}	
+		
+		middle.add(add);
+		middle.add(update);
+		middle.add(remove);
+		
+		JPanel bottom = new JPanel();
+		bottom.setBackground(new Color(176, 196, 222));
+		bottom.setLayout(new BoxLayout(bottom, BoxLayout.X_AXIS));
+		bottom.setBorder(new EmptyBorder(0, 20, 10, 80));
+		
+		logout = new JButton();
+		logout.setForeground(new Color(25, 25, 112));
+		logout.setFont(new Font("PingFang TC", Font.PLAIN, 15));
+		logout.setAlignmentX(Component.CENTER_ALIGNMENT);
+		logout.setText("Logout");
+		logout.addActionListener(listener);
+		
+		bottom.add(logout);
+		
+		this.add(top, BorderLayout.NORTH);
+		this.add(middle, BorderLayout.CENTER);
+		this.add(bottom, BorderLayout.SOUTH);
+		}	
 	
 	
 	
