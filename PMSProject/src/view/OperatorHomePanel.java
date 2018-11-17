@@ -22,7 +22,7 @@ public class OperatorHomePanel extends JPanel{
 	private JButton update;
 	private JButton remove;
 	
-	public OperatorHomePanel(Operator op, OperatorListener listener) {
+	public OperatorHomePanel(OperatorListener listener) {
 		super();
 		
 		this.setBackground(new Color(176, 196, 222));
@@ -36,11 +36,7 @@ public class OperatorHomePanel extends JPanel{
 		JLabel date = new JLabel("" + dFormat.format(theDate));
 		date.setFont(new Font("PingFang TC", Font.PLAIN, 14));
 		date.setForeground(new Color(25, 25, 112));
-		JLabel opEmail = new JLabel("Loggin in as: " + op.getEmail())	;	
-		opEmail.setFont(new Font("PingFang TC", Font.PLAIN, 14));
-		opEmail.setForeground(new Color(25, 25, 112));
 		top.add(date, BorderLayout.WEST);
-		top.add(opEmail, BorderLayout.EAST);
 
 		JPanel middle = new JPanel();
 		middle.setBackground(new Color(176, 196, 222));

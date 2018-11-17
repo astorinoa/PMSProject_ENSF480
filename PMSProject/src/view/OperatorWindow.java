@@ -24,7 +24,6 @@ import java.awt.*;
  */
 public class OperatorWindow extends JFrame {
 
-	private Operator op;
 	private OperatorListener listener;
 	private JPanel contentPane;
 	private CardLayout cardLayout;
@@ -41,8 +40,7 @@ public class OperatorWindow extends JFrame {
 	// remove doc page
 	private RemoveDocPanel removeDocPanel;
 	
-	public OperatorWindow(Operator op) {
-		this.op = op;
+	public OperatorWindow() {
 		listener = new OperatorListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
@@ -54,7 +52,7 @@ public class OperatorWindow extends JFrame {
 		this.setContentPane(contentPane);	
 		
 		//create operator home panel
-		homePanel = new OperatorHomePanel(op, listener);
+		homePanel = new OperatorHomePanel(listener);
 		contentPane.add(homePanel, "Home");
 	}
 }	
