@@ -15,14 +15,14 @@ import javax.swing.border.EmptyBorder;
 
 import control.OperatorListener;
 
-public class RegisteredHomePanel extends JPanel{
+public class OrdinaryHomePanel extends JPanel{
 	private JButton logout;
 	private JButton search;
 	private JButton placeOrder;
 	private JButton viewPromotions;
-	private JButton unsubscribe;
+	private JButton register;
 	
-	public RegisteredHomePanel(BuyerListener listener) {
+	public OrdinaryHomePanel(BuyerListener listener) {
 		super();
 		
 		this.setBackground(new Color(176, 196, 222));
@@ -65,17 +65,17 @@ public class RegisteredHomePanel extends JPanel{
 		viewPromotions.setText("View Promotions");
 		viewPromotions.addActionListener(listener);
 		
-		unsubscribe = new JButton();
-		unsubscribe.setFont(new Font("PingFang TC", Font.PLAIN, 15));
-		unsubscribe.setForeground(new Color(25, 25, 112));
-		unsubscribe.setAlignmentX(Component.CENTER_ALIGNMENT);
-		unsubscribe.setText("Unsubscribe");
-		unsubscribe.addActionListener(listener);
+		register = new JButton();
+		register.setFont(new Font("PingFang TC", Font.PLAIN, 15));
+		register.setForeground(new Color(25, 25, 112));
+		register.setAlignmentX(Component.CENTER_ALIGNMENT);
+		register.setText("Register");
+		register.addActionListener(listener);
 		
 		middle.add(search);
 		middle.add(placeOrder);
 		middle.add(viewPromotions);
-		middle.add(unsubscribe);
+		middle.add(register);
 		
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(176, 196, 222));
