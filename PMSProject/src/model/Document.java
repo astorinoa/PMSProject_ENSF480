@@ -41,5 +41,8 @@ public class Document {
 		return quantity;
 	}	
 	
+	public String toString() {
+		return (id + " - " + title + " - by: "+ author + " - quantity avaliable: "+ quantity + " - $"+ price + " each" );
+	}
 	
 }
