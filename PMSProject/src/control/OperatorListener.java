@@ -9,9 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import view.LoginWindow;
-import view.OperatorHomePanel;
-import view.OperatorWindow;
+import view.OperatorActionForm;
 
 
 /**
@@ -21,13 +19,13 @@ import view.OperatorWindow;
  *
  */
 public class OperatorListener implements ActionListener, ListSelectionListener{
-	private OperatorWindow frame;
+	private OperatorActionForm frame;
 
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
 	 */
-	public OperatorListener(OperatorWindow jf) {
+	public OperatorListener(OperatorActionForm jf) {
 		frame = jf;
 	}
 

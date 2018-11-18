@@ -26,7 +26,7 @@ import javax.swing.border.CompoundBorder;
  * @author Alexa Astorino, Shreya Patel, Rae McPhail
  *
  */
-public class LoginWindow extends JFrame {
+public class LoginForm extends JFrame {
 
 	private JTextField userEmail;
 	private JPasswordField passwordField;
@@ -39,7 +39,7 @@ public class LoginWindow extends JFrame {
 	 * @param objOut to communicate over socket
 	 * @param objIn to communicate over socket
 	 */
-	public LoginWindow() {
+	public LoginForm() {
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		listener = new LoginListener(this);

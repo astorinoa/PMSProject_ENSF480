@@ -7,8 +7,8 @@ import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 
 import model.RegisteredBuyer;
-import view.LoginWindow;
-import view.OperatorWindow;
+import view.LoginForm;
+import view.OperatorActionForm;
 
 /**
  * creates an object of type LoginListner which implements ActionListener and is used to 
@@ -17,7 +17,7 @@ import view.OperatorWindow;
  *
  */
 public class LoginListener implements ActionListener{
-	private LoginWindow frame;
+	private LoginForm frame;
 	private ValidateLoginController validate;
 
 	/**
@@ -25,7 +25,7 @@ public class LoginListener implements ActionListener{
 	 * @param jf the frame that the listener connects to
 	 */
 
-	public LoginListener(LoginWindow jf){
+	public LoginListener(LoginForm jf){
 		frame = jf;
 		validate = new ValidateLoginController();
 	}
@@ -55,7 +55,7 @@ public class LoginListener implements ActionListener{
 			else if(type.equals("Operator"))
 			{
 				frame.setVisible(false);
-				OperatorWindow p = new OperatorWindow();
+				OperatorActionForm p = new OperatorActionForm();
 			}
 			else if(type.equals("NoUser"))
 			{
