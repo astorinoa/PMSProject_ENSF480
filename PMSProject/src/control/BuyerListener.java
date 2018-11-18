@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import model.RegisteredBuyer;
 import view.BuyerAccountForm;
 
 /**
@@ -16,13 +17,14 @@ import view.BuyerAccountForm;
  */
 public class BuyerListener implements ActionListener, ListSelectionListener{
 	private BuyerAccountForm frame;
-
+	private BuyerController controller;
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
 	 */
 	public BuyerListener(BuyerAccountForm jf) {
 		frame = jf;
+		controller = new BuyerController();
 	}
 
 	/**
@@ -68,8 +70,26 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		else if(a.getSource() == frame.getRegPanel().getBack())
 		{
 			//show the home panel
-			frame.getCardLayout().show(frame.getContentPane(), "Home");	
+			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");	
 		}
+		//if register button on reg panel pressed 
+		else if(a.getSource() == frame.getRegPanel().getRegister())
+		{
+			char [] tmp  = frame.getRegPanel().getPasswordField().getPassword();
+			String pass = new String (tmp);
+			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				
+				RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
+				new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
+				//show the registered home panel
+				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
+			}
+		}
+		
+		else if(a.getSource() == frame.getOrdHomePanel().getRegister())
+		{
+			frame.getCardLayout().show(frame.getContentPane(), "Registration");
+		}
+		
 		
 	
 	

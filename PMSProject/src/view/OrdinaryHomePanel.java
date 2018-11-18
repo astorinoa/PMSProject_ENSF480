@@ -95,6 +95,26 @@ public class OrdinaryHomePanel extends JPanel{
 		this.add(top, BorderLayout.NORTH);
 		this.add(middle, BorderLayout.CENTER);
 		this.add(bottom, BorderLayout.SOUTH);
-	}	
+	}
+
+	public JButton getLogout() {
+		return logout;
+	}
+
+	public JButton getSearch() {
+		return search;
+	}
+
+	public JButton getPlaceOrder() {
+		return placeOrder;
+	}
+
+	public JButton getViewPromotions() {
+		return viewPromotions;
+	}
+
+	public JButton getRegister() {
+		return register;
+	}
 	
 }

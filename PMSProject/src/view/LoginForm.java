@@ -61,7 +61,7 @@ public class LoginForm extends JFrame {
 		guest = new JButton();
 		guest.setForeground(new Color(25, 25, 112));
 		guest.setFont(new Font("PingFang TC", Font.PLAIN, 20));
-		guest.setText("Conintue as Guest Buyer");
+		guest.setText("Continue as Guest Buyer");
 		guest.addActionListener(listener);
 		forGuestButton.add(guest);
 		contentPane.add(forGuestButton, BorderLayout.SOUTH);
