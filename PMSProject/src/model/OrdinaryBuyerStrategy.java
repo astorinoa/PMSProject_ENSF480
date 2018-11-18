@@ -10,30 +10,16 @@ package model;
  */
 public class OrdinaryBuyerStrategy implements BuyerStrategy {
 	
-//	Buyer b;
-//	public OrdinaryBuyerStrategy(Buyer b)
-//	{
-//		this.b = b;
-//	}
-//	
-	/**
-	 * allows buyer to view promotions, 
-	 * for ordinary buyers shows a window that tells them to become
-	 * a registered buyer in order to see promotions
-	 */
+
 	public void viewPromotions()
 	{
+		//potentially call method in listener
 		//shows "Become a registered buyer to receive promotions"
 	}
 	
-	/**
-	 * allows buyer to view change their strategy
-	 * for ordinary buyers they become registered buyers
-	 */
+
 	public void changeSubscriptionStatus()
 	{
-		//b.setStrategyPattern(new RegisterBuyer());
-		//Makes buyer a registered buyer
-		//TODO update database
+		//shows "Not a registered buyer"
 	}
 }

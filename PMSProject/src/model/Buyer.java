@@ -24,31 +24,22 @@ abstract class Buyer {
 	 * @param p is the operator's password
 	 * @param id is the operator's id in the database
 	 */
-	public Buyer(int id, String e, String p) {
+	public Buyer(int id, String e, String p, BuyerStrategy s) {
 		this.id = id;
 		email = e;
 		password = p;
-		strategy = new RegisteredBuyerStrategy();
+		strategy = s;
 	}
 	
 	/**
 	 * Constructor for the Buyer if they are browser as an OrdinaryBuyer, 
 	 * you know they are an ordinary buyer because they don't have an email and password
 	 */
-	public Buyer() {
-		strategy = new OrdinaryBuyerStrategy();
+	public Buyer(BuyerStrategy s) {
+		strategy = s;
 	}
 	
 	
-
-	
-//	/**
-//	 * sets Buyer strategy
-//	 */
-//	public void setStrategy(Strategy s)
-//	{
-//		strategy = s; 
-//	}
 	
 	/**
 	 * allows buyer to view promotions, 

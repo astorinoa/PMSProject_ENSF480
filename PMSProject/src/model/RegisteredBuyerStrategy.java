@@ -2,13 +2,6 @@ package model;
 
 public class RegisteredBuyerStrategy implements BuyerStrategy {
 	
-//	Buyer b;
-//	public RegisteredBuyerStrategy(Buyer b)
-//	{
-//		this.b = b;
-//	}
-	
-
 
 	/**
 	 * allows buyer to view promotions, 
@@ -16,7 +9,7 @@ public class RegisteredBuyerStrategy implements BuyerStrategy {
 	 */
 	public void viewPromotions()
 	{
-		//shows "Become a registered buyer to receive promotions"
+		//SHOW A JLIST
 	}
 	
 	/**
