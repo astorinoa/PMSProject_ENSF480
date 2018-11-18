@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import control.BuyerListener;
+
 public class PromoPanel extends JPanel {
 	private DefaultListModel<String> model;
 	private JList <String> promotions;

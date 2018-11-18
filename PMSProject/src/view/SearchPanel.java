@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import control.BuyerListener;
+
 public class SearchPanel extends JPanel {
 	private JCheckBox title;
 	private JCheckBox author;

@@ -17,6 +17,8 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
+import control.BuyerListener;
+
 public class RegPanel extends JPanel{
 	private JTextField fName;
 	private JTextField lName;
@@ -120,5 +122,15 @@ public class RegPanel extends JPanel{
 		this.add(top, BorderLayout.NORTH);
 		this.add(regInfo, BorderLayout.CENTER);
 		this.add(forButton, BorderLayout.SOUTH);
+	}
+	
+	public JButton getBack()
+	{
+		return back;
+	}
+	
+	public JButton getRegister()
+	{
+		return register;
 	}
 }

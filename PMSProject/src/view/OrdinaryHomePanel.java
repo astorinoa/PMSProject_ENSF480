@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import control.BuyerListener;
 import control.OperatorListener;
 
 public class OrdinaryHomePanel extends JPanel{

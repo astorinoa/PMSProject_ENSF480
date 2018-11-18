@@ -6,6 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 
+import view.BuyerAccountForm;
 import view.LoginForm;
 import view.OperatorActionForm;
 import model.RegisteredBuyer;
@@ -50,7 +51,7 @@ public class LoginListener implements ActionListener{
 			String type = validate.readCheck(frame.getuserEmail().getText(), pass);
 			if(type.equals("RegisteredBuyer")) {
 				frame.setVisible(false);
-	//			RegisteredWindow r = new RegisteredWindow();
+				BuyerAccountForm r = new BuyerAccountForm();
 			}
 			else if(type.equals("Operator"))
 			{

@@ -5,15 +5,16 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
-
+import javax.swing.SwingConstants;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import control.OperatorListener;
+import control.BuyerListener;
+
+
 
 public class RegisteredHomePanel extends JPanel{
 	private JButton logout;
@@ -96,4 +97,25 @@ public class RegisteredHomePanel extends JPanel{
 		this.add(bottom, BorderLayout.SOUTH);
 	}	
 	
+	public JButton getLogout()
+	{
+		return logout;
+	}
+
+	public JButton getSearch() {
+		return search;
+	}
+
+	public JButton getPlaceOrder() {
+		return placeOrder;
+	}
+
+	public JButton getViewPromotions() {
+		return viewPromotions;
+	}
+
+	public JButton getUnsubscribe() {
+		return unsubscribe;
+	}
+
 }

@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import control.BuyerListener;
 import control.OperatorListener;
 
 public class BuyerAccountForm extends JFrame {
@@ -32,7 +33,7 @@ public class BuyerAccountForm extends JFrame {
 	//make payment page
 	
 	//promotions page
-	private PromoPanel promoPage;
+	private PromoPanel promoPanel;
 	
 	public BuyerAccountForm() {
 		listener = new BuyerListener(this);
@@ -58,8 +59,8 @@ public class BuyerAccountForm extends JFrame {
 		searchPanel.add(searchPanel, "Search");
 		
 		//create promo panel
-		searchPanel = new PromoPanel(listener);
-		searchPanel.add(searchPanel, "Search");
+		promoPanel = new PromoPanel(listener);
+		promoPanel.add(promoPanel, "Promotion");
 		
 		//create reg panel
 		regPanel = new RegPanel(listener);
@@ -67,5 +68,30 @@ public class BuyerAccountForm extends JFrame {
 		
 		this.pack();
 		this.setVisible(true);
+	}
+
+	public RegisteredHomePanel getRegHomePanel() {
+		return regHomePanel;
+	}
+
+	public OrdinaryHomePanel getOrdHomePanel() {
+		return ordHomePanel;
+	}
+
+	public SearchPanel getSearchPanel() {
+		return searchPanel;
+	}
+
+	public RegPanel getRegPanel() {
+		return regPanel;
+	}
+
+	public PromoPanel getPromoPanel() {
+		return promoPanel;
+	}
+	
+	public CardLayout getCardLayout()
+	{
+		return cardLayout;
 	}
 }
