@@ -13,13 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
 
 public class PromoPanel extends JPanel {
-	private DefaultListModel<String> model;
-	private JList <String> promotions;
+	private JTextArea promotions;
 	private JButton back;
 	
 	public PromoPanel(BuyerListener listener) {
@@ -46,9 +46,8 @@ public class PromoPanel extends JPanel {
 		docLbl.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		docLbl.setForeground(new Color(25, 25, 112));
 		middle.add(docLbl, BorderLayout.NORTH);
-		model = new DefaultListModel<>();
-		promotions = new JList<>(model);
-		promotions.addListSelectionListener(listener);
+		promotions = new JTextArea();
+		promotions.setEditable(false);
 		JScrollPane scroll = new JScrollPane(promotions, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		middle.add(scroll, BorderLayout.CENTER);
 
