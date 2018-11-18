@@ -1,32 +1,10 @@
 package model;
 
-public class RegisteredBuyer implements BuyerStrategy {
+public class RegisteredBuyer extends Buyer{
 	
-	Buyer b;
-	public RegisteredBuyer(Buyer b)
-	{
-		this.b = b;
+	public RegisteredBuyer(int id, String email, String password) {
+		super(id,email,password);
+		strategy = new RegisteredBuyerStrategy();
 	}
-	
-	/**
-	 * allows buyer to view promotions, 
-	 * only registered buyers are able to see promotions
-	 */
-	public void viewPromotions()
-	{
-		//shows "Become a registered buyer to receive promotions"
-	}
-	
-	/**
-	 * allows buyer to view change their strategy
-	 * for registered buyers they become ordinary buyers
-	 */
-	public void changeSubscriptionStatus()
-	{
-		//b.setStrategyPattern(new OrdinaryBuyer());
-		//Makes buyer a registered buyer
-		//TODO update database
-	}
+
 }
-
-

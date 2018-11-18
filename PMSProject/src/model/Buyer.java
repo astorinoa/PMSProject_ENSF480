@@ -10,12 +10,12 @@ package model;
  * @author Rae McPhail, Alexa Astorino, Shreya Patel
  *
  */
-public class Buyer {
+abstract class Buyer {
 	
-	private BuyerStrategy strategy;
-	private String email;
-	private String password;
-	private int id;
+	protected BuyerStrategy strategy;
+	protected String email;
+	protected String password;
+	protected int id;
 	
 	/**
 	 * Constructor for the Buyer if they logged in as a RegisteredBuyer, 
@@ -28,27 +28,27 @@ public class Buyer {
 		this.id = id;
 		email = e;
 		password = p;
-		strategy = new RegisteredBuyer();
+		//strategy = new RegisteredBuyer();
 	}
 	
-	/**
-	 * Constructor for the Buyer if they are browser as an OrdinaryBuyer, 
-	 * you know they are an ordinary buyer because they don't have an email and password
-	 */
-	public Buyer() {
-		this.id = null;
-		email = null;
-		password = null;
-		strategy = new OrdinaryBuyer();
-	}
+//	/**
+//	 * Constructor for the Buyer if they are browser as an OrdinaryBuyer, 
+//	 * you know they are an ordinary buyer because they don't have an email and password
+//	 */
+//	public Buyer() {
+//		this.id = null;
+//		email = null;
+//		password = null;
+//		strategy = new OrdinaryBuyer();
+//	}
 	
-	/**
-	 * sets Buyer strategy
-	 */
-	public void setStrategy(Strategy s)
-	{
-		strategy = s; 
-	}
+//	/**
+//	 * sets Buyer strategy
+//	 */
+//	public void setStrategy(Strategy s)
+//	{
+//		strategy = s; 
+//	}
 	
 	/**
 	 * allows buyer to view promotions, 
@@ -75,7 +75,7 @@ public class Buyer {
 	public String getPassword() {
 		return password;
 	}
-	public String getID() {
+	public int getID() {
 		return id;
 	}
 }

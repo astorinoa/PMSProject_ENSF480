@@ -10,8 +10,7 @@ package model;
  * @author Rae McPhail, Alexa Astorino, Shreya Patel
  *
  */
-public interface BuyerStrategy {
-	
-	public void viewPromotions();
-	public void changeSubscriptionStatus();
+public interface BuyerStrategy {	
+	abstract void viewPromotions();
+	abstract void changeSubscriptionStatus();
 }
