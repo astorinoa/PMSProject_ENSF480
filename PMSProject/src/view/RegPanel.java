@@ -132,4 +132,20 @@ public class RegPanel extends JPanel{
 	{
 		return register;
 	}
+	
+	public JTextField getfName() {
+		return fName;
+	}
+
+	public JTextField getlName() {
+		return lName;
+	}
+
+	public JTextField getEmail() {
+		return email;
+	}
+
+	public JPasswordField getPasswordField() {
+		return passwordField;
+	}
 }

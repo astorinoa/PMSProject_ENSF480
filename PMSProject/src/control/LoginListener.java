@@ -2,13 +2,12 @@ package control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 
 import view.BuyerAccountForm;
 import view.LoginForm;
 import view.OperatorActionForm;
+import model.OrdinaryBuyer;
 import model.RegisteredBuyer;
 
 /**
@@ -42,6 +41,8 @@ public class LoginListener implements ActionListener{
 		if (a.getSource() == frame.getGuest()) {	
 			frame.setVisible(false);
 			BuyerAccountForm b = new BuyerAccountForm();
+			new OrdinaryBuyer();
+			frame.setVisible(false);
 			b.getCardLayout().show(b.getContentPane(), "Ordinary Home");	
 		}
 	}
@@ -56,6 +57,8 @@ public class LoginListener implements ActionListener{
 			String type = validate.readCheck(frame.getuserEmail().getText(), pass);
 			if(type.equals("RegisteredBuyer")) {
 				frame.setVisible(false);
+				RegisteredBuyer reg = validate.searchRegUser(frame.getuserEmail().getText(), pass);
+				new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
 				BuyerAccountForm r = new BuyerAccountForm();
 			}
 			else if(type.equals("Operator"))
