@@ -64,5 +64,8 @@ public class BuyerAccountForm extends JFrame {
 		//create reg panel
 		regPanel = new RegPanel(listener);
 		regPanel.add(regPanel, "Registration");
+		
+		this.pack();
+		this.setVisible(true);
 	}
 }
