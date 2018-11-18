@@ -28,19 +28,19 @@ abstract class Buyer {
 		this.id = id;
 		email = e;
 		password = p;
-		//strategy = new RegisteredBuyer();
+		strategy = new RegisteredBuyerStrategy();
 	}
 	
-//	/**
-//	 * Constructor for the Buyer if they are browser as an OrdinaryBuyer, 
-//	 * you know they are an ordinary buyer because they don't have an email and password
-//	 */
-//	public Buyer() {
-//		this.id = null;
-//		email = null;
-//		password = null;
-//		strategy = new OrdinaryBuyer();
-//	}
+	/**
+	 * Constructor for the Buyer if they are browser as an OrdinaryBuyer, 
+	 * you know they are an ordinary buyer because they don't have an email and password
+	 */
+	public Buyer() {
+		strategy = new OrdinaryBuyerStrategy();
+	}
+	
+	
+
 	
 //	/**
 //	 * sets Buyer strategy
