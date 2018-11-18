@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -100,8 +101,9 @@ public class SearchPanel extends JPanel {
 		searchResLbl.setForeground(new Color(25, 25, 112));
 		results = new JTextArea();
 		results.setEditable(false);
+		JScrollPane scroll = new JScrollPane(results, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		middle.add(searchResLbl, BorderLayout.NORTH);
-		middle.add(results, BorderLayout.CENTER);
+		middle.add(scroll, BorderLayout.CENTER);
 
 		JPanel forBack = new JPanel();
 		backOnS = new JButton();

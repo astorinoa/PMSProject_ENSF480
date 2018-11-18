@@ -15,6 +15,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import control.BuyerListener;
+
 public class PlaceOrderPanel extends JPanel {
 	private JTextField email;
 	private JTextField item;
@@ -27,7 +29,7 @@ public class PlaceOrderPanel extends JPanel {
 	private JCheckBox mc;
 	private JCheckBox am;
 
-	public PlaceOrderPanel() {
+	public PlaceOrderPanel(BuyerListener listener) {
 		super();
 		
 		this.setBackground(new Color(176, 196, 222));
@@ -35,16 +37,15 @@ public class PlaceOrderPanel extends JPanel {
 		
 		JPanel orderInfo = new JPanel ();
 		orderInfo.setBackground(new Color(176, 196, 222));
-		orderInfo.setLayout(new BoxLayout(orderInfo, BoxLayout.PAGE_AXIS));
-		orderInfo.setBorder(new EmptyBorder(25, 25, 25, 25));
+		orderInfo.setBorder(new EmptyBorder(20, 20, 0, 20));
 		
 		JPanel one = new JPanel ();
 		one.setBackground(new Color(176, 196, 222));
 		one.setLayout(new FlowLayout());
-		one.setBorder(new EmptyBorder(0, 0, 0, 0));
+		one.setBorder(null);
 		JLabel eLabel = new JLabel("Email:");
 		eLabel.setForeground(new Color(25, 25, 112));
-		eLabel.setFont(new Font("PingFang TC", Font.PLAIN, 20));
+		eLabel.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		one.add(eLabel);
 		email = new JTextField(15);
 		email.setName("email");
@@ -56,7 +57,7 @@ public class PlaceOrderPanel extends JPanel {
 		two.setBorder(new EmptyBorder(0, 0, 0, 0));
 		JLabel iLabel = new JLabel("Item ID:");
 		iLabel.setForeground(new Color(25, 25, 112));
-		iLabel.setFont(new Font("PingFang TC", Font.PLAIN, 20));
+		iLabel.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		two.add(iLabel);
 		item = new JTextField(10);
 		item.setName("item");
@@ -68,7 +69,7 @@ public class PlaceOrderPanel extends JPanel {
 		three.setBorder(new EmptyBorder(0, 0, 0, 0));
 		JLabel qLabel = new JLabel("Quantiy:");
 		qLabel.setForeground(new Color(25, 25, 112));
-		qLabel.setFont(new Font("PingFang TC", Font.PLAIN, 20));
+		qLabel.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		three.add(qLabel);
 		quantity = new JTextField(3);
 		quantity.setSize(2, 15);
@@ -107,11 +108,11 @@ public class PlaceOrderPanel extends JPanel {
 		four.setBorder(new EmptyBorder(0, 0, 0, 0));
 		JLabel num = new JLabel("Card Number: ");
 		num.setForeground(new Color(25, 25, 112));
-		num.setFont(new Font("PingFang TC", Font.PLAIN, 20));
+		num.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		four.add(num);
 		card = new JTextField(16);
 		card.setSize(2, 15);
-		four.add(four);
+		four.add(card);
 		
 		JPanel five = new JPanel ();
 		five.setBackground(new Color(176, 196, 222));
@@ -119,10 +120,11 @@ public class PlaceOrderPanel extends JPanel {
 		five.setBorder(new EmptyBorder(0, 0, 0, 0));
 		JLabel numcvv = new JLabel("CVV: ");
 		numcvv.setForeground(new Color(25, 25, 112));
-		numcvv.setFont(new Font("PingFang TC", Font.PLAIN, 20));
+		numcvv.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		five.add(numcvv);
 		cvv = new JTextField(3);
-		five.add(four);
+		cvv.setSize(2, 15);
+		five.add(cvv);
 		
 		JPanel forButton = new JPanel();
 		forButton.setBackground(new Color(176, 196, 222));
@@ -149,7 +151,7 @@ public class PlaceOrderPanel extends JPanel {
 		orderInfo.add(four);
 		orderInfo.add(five);
 		this.add(orderInfo, BorderLayout.CENTER);
-		//this.add(forButton, BorderLayout.SOUTH);
+		this.add(forButton, BorderLayout.SOUTH);
 	}
 	
 }

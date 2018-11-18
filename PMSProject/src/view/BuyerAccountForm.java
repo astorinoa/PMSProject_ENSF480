@@ -26,11 +26,13 @@ public class BuyerAccountForm extends JFrame {
 	private SearchPanel searchPanel;
 	
 	//place order page
+	private PlaceOrderPanel orderPanel;
 	
 	//register page
 	private RegPanel regPanel;
 	
 	//make payment page
+	private PaymentPanel payPanel;
 	
 	//promotions page
 	private PromoPanel promoPanel;
@@ -65,6 +67,14 @@ public class BuyerAccountForm extends JFrame {
 		//create reg panel
 		regPanel = new RegPanel(listener);
 		contentPane.add(regPanel, "Registration");
+		
+		//create order panel
+		orderPanel = new PlaceOrderPanel(listener);
+		contentPane.add(orderPanel, "Order");
+		
+		//create payment panel
+		payPanel = new PaymentPanel(listener);
+		contentPane.add(payPanel, "Payment");
 		
 		this.pack();
 		this.setVisible(true);
