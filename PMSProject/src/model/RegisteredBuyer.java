@@ -1,11 +1,11 @@
 package model;
 
-public class OrdinaryBuyer implements BuyerStrategy {
+public class RegisteredBuyer implements BuyerStrategy {
 	
 	Buyer b;
-	public OrdinaryBuyer(Buyer b)
+	public RegisteredBuyer(Buyer b)
 	{
-		this.b = B;
+		this.b = b;
 	}
 	
 	/**
@@ -23,7 +23,7 @@ public class OrdinaryBuyer implements BuyerStrategy {
 	 */
 	public void changeSubscriptionStatus()
 	{
-		b.setStrategyPattern(new OrdinaryBuyer());
+		//b.setStrategyPattern(new OrdinaryBuyer());
 		//Makes buyer a registered buyer
 		//TODO update database
 	}

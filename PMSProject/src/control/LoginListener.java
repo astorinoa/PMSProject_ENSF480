@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import view.LoginForm;
 import view.OperatorActionForm;
+import model.RegisteredBuyer;
 
 /**
  * creates an object of type LoginListner which implements ActionListener and is used to 
