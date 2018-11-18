@@ -118,7 +118,6 @@ public class RegPanel extends JPanel{
 		regInfo.add(two);
 		regInfo.add(three);
 		regInfo.add(four);
-		//regInfo.add(forButton);
 		this.add(top, BorderLayout.NORTH);
 		this.add(regInfo, BorderLayout.CENTER);
 		this.add(forButton, BorderLayout.SOUTH);
