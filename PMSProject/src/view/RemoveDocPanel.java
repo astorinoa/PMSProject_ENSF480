@@ -90,4 +90,12 @@ public class RemoveDocPanel extends JPanel {
 	{
 		return back;
 	}
+	
+	public JList getDocuments()
+	{
+		return documents;
+	}
+	public DefaultListModel<String> getModel(){
+		return model;
+	}
 }

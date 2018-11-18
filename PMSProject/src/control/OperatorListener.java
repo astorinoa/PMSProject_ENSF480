@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import model.ApprovalDocument;
+import model.Document;
 import view.OperatorActionForm;
 
 
@@ -66,14 +68,14 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 			frame.getCardLayout().show(frame.getContentPane(), "Home");	
 		}
 	
-		//if back button on add document panel pressed 
+		//if back button on update document panel pressed 
 		else if(a.getSource() == frame.getUpdateDocPanel().getBack())
 		{
 			//show the home panel
 			frame.getCardLayout().show(frame.getContentPane(), "Home");	
 		}
 
-		//if back button on add document panel pressed 
+		//if back button on remove document panel pressed 
 		else if(a.getSource() == frame.getRemoveDocPanel().getBack())
 		{
 			//show the home panel
@@ -82,9 +84,47 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 	}	
 	
 	@Override
-	public void valueChanged(ListSelectionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public void valueChanged(ListSelectionEvent e) {
+		if (e.getValueIsAdjusting()) {
+			EditDocumentController d = new EditDocumentController();
+			
+			// remove document
+			if (e.getSource() == frame.getRemoveDocPanel().getDocuments()) {
+				if(frame.getRemoveDocPanel().getDocuments().getSelectedIndex() != -1)
+				{
+					Document doomed = d.getDocuments().get(frame.getRemoveDocPanel().getDocuments().getSelectedIndex());
+					d.deleteDocument(doomed);
+					
+					frame.getRemoveDocPanel().getModel().removeAllElements();
+					
+					for(int i = 0; i < d.getDocuments().size(); i++)
+					{
+						frame.getRemoveDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
+					}
+				}
+			}
+			// add document from the approval queue
+			if (e.getSource() == frame.getAddDocPanel().getDocuments()) {
+				if(frame.getAddDocPanel().getDocuments().getSelectedIndex() != -1)
+				{
+					ApprovalDocument add = d.getApprovalDocuments().get(frame.getAddDocPanel().getDocuments().getSelectedIndex());
+					d.addDocument(add);
+					d.deleteDocument(add);
+					
+					frame.getAddDocPanel().getModel().removeAllElements();
+					for(int i = 0; i < d.getApprovalDocuments().size(); i++)
+					{
+						frame.getAddDocPanel().getModel().addElement(d.getApprovalDocuments().get(i).toString());
+					}
+					
+					frame.getRemoveDocPanel().getModel().removeAllElements();
+					for(int i = 0; i < d.getDocuments().size(); i++)
+					{
+						frame.getRemoveDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
+					}
+				}
+			}
+		}
 	}
 }
 

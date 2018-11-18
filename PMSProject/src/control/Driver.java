@@ -18,7 +18,7 @@ public class Driver {
 			  password       = "HelloWorld";
 		
 	protected String docTable = "document", operatorTable = "operator", orderTable = "order",
-			promoTable = "promotion", regTable = "registered_buyer";
+			promoTable = "promotion", regTable = "registered_buyer", approveTable = "approval_documents";
 	
 	/**
 	 * Constructor for Driver class. Enables the connection to the database.

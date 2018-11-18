@@ -15,7 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import control.EditDocumentController;
 import control.OperatorListener;
+
+
+//PLEASE NOTE
+// add documents from approval queue only. 
+// ASSUME: all submissions made by authors would go the the approval queue.
+
 
 public class AddDocPanel extends JPanel {
 	private DefaultListModel<String> model;
@@ -52,21 +59,11 @@ public class AddDocPanel extends JPanel {
 		JScrollPane scroll = new JScrollPane(approvalQueue, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		middle.add(scroll, BorderLayout.CENTER);
 
-		// need to fill documents jlist with approvalQueue
-		//try {
-	
-
-		//	prof.setCourses((ArrayList<Course>) objIn.readObject());
-		//	for(int i = 0; i < prof.getCourses().size(); i++)
-		//	{
-		//		model.addElement(prof.getCourses().get(i).toString());
-		//	}
-		//} catch (IOException e) {
-		//	e.printStackTrace();
-		//} catch(ClassNotFoundException e)
-		//{
-		//	System.err.println(e.getMessage());
-		//}
+		EditDocumentController d = new EditDocumentController();
+		for(int i = 0; i < d.getApprovalDocuments().size(); i++)
+		{
+			model.addElement(d.getApprovalDocuments().get(i).toString());
+		}
 		
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(176, 196, 222));
@@ -95,5 +92,13 @@ public class AddDocPanel extends JPanel {
 	public JButton getBack()
 	{
 		return back;
+	}
+	
+	public JList getDocuments()
+	{
+		return approvalQueue;
+	}
+	public DefaultListModel<String> getModel(){
+		return model;
 	}
 }

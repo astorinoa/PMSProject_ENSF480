@@ -27,13 +27,14 @@ public class EditDocumentController extends Driver{
 		
 	}
 	
-	public void addDocument (Document d){
+	public void addDocument (ApprovalDocument d){
 		String sql = "INSERT INTO " + docTable +
-				" VALUES ( '" + d.getType() + "', '" + 
+				" VALUES ( "+ d.getId() +", '" + 
+				d.getType() + "', '" + 
 				d.getAuthor() + "', '" + 
 				d.getTitle() + "', " +
 				d.getPrice() + ", " +
-				d.getQuantity() + ");";
+				d.getQuantity() + ")";
 		try{
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
@@ -46,7 +47,20 @@ public class EditDocumentController extends Driver{
 	}
 	
 	public void deleteDocument (Document d){
-		String sql = "DELETE FROM " + docTable + " WHERE ID=" + d.getId();
+		String sql = "DELETE FROM " + docTable + " WHERE DOCUMENT_ID=" + d.getId();
+		try{
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+		}
+		catch(SQLException ex)
+		{
+			ex.printStackTrace();
+		}
+		
+	}
+	
+	public void deleteDocument (ApprovalDocument d){
+		String sql = "DELETE FROM " + approveTable + " WHERE DOCUMENT_ID=" + d.getId();
 		try{
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
@@ -68,6 +82,29 @@ public class EditDocumentController extends Driver{
 			while(document.next())
 			{
 				temp.add(new Document(document.getInt("DOCUMENT_ID"),
+						document.getString("TYPE"), 
+						document.getString("AUTHOR"), 
+						document.getString("TITLE"), 
+						document.getInt("PRICE"),
+						document.getInt("QUANTITY")));
+			}
+		}
+		catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return temp;
+	}
+	
+	public ArrayList<ApprovalDocument> getApprovalDocuments(){
+		String sql = "SELECT * FROM " + approveTable;
+		ResultSet document;
+		ArrayList<ApprovalDocument> temp = new ArrayList<ApprovalDocument>();
+		try {
+			stmt = conn.createStatement();
+			document = stmt.executeQuery(sql);
+			while(document.next())
+			{
+				temp.add(new ApprovalDocument(document.getInt("DOCUMENT_ID"),
 						document.getString("TYPE"), 
 						document.getString("AUTHOR"), 
 						document.getString("TITLE"), 
