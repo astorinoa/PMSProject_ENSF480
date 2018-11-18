@@ -25,6 +25,7 @@ public class RegisteredBuyerStrategy implements BuyerStrategy {
 	 */
 	public void changeSubscriptionStatus()
 	{
+		//help
 		//b.setStrategyPattern(new OrdinaryBuyer());
 		//Makes buyer a registered buyer
 		//TODO update database
