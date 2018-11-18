@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.BoxLayout;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
+import control.EditDocumentController;
 import control.OperatorListener;
 
 public class UpdateDocPanel extends JPanel{
@@ -52,21 +54,11 @@ public class UpdateDocPanel extends JPanel{
 		JScrollPane scroll = new JScrollPane(documents, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		middle.add(scroll, BorderLayout.CENTER);
 
-		// need to fill documents jlist with documents 
-		//try {
-	
-
-		//	prof.setCourses((ArrayList<Course>) objIn.readObject());
-		//	for(int i = 0; i < prof.getCourses().size(); i++)
-		//	{
-		//		model.addElement(prof.getCourses().get(i).toString());
-		//	}
-		//} catch (IOException e) {
-		//	e.printStackTrace();
-		//} catch(ClassNotFoundException e)
-		//{
-		//	System.err.println(e.getMessage());
-		//}
+		EditDocumentController d = new EditDocumentController();
+		for(int i = 0; i < d.getDocuments().size(); i++)
+		{
+			model.addElement(d.getDocuments().get(i).toString());
+		}
 		
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(176, 196, 222));
