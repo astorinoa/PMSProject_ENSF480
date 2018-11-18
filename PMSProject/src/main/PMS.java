@@ -1,11 +1,11 @@
 package main;
 
-import view.LoginWindow;
+import view.LoginForm;
 
 public class PMS {
 
 	public static void main(String[] args) {
-		LoginWindow login = new LoginWindow();
+		LoginForm login = new LoginForm();
 	}
 
 }

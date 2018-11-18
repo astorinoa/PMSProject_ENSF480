@@ -6,7 +6,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javax.swing.JOptionPane;
 
-import model.RegisteredBuyer;
 import view.LoginForm;
 import view.OperatorActionForm;
 
