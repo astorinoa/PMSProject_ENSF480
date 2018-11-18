@@ -21,7 +21,7 @@ import java.awt.*;
  * @author Rae McPhail, Alexa Astorino, Shreya Patel
  *
  */
-public class OperatorWindow extends JFrame {
+public class OperatorActionForm extends JFrame {
 
 	private OperatorListener listener;
 	private JPanel contentPane;
@@ -39,7 +39,7 @@ public class OperatorWindow extends JFrame {
 	// remove doc page
 	private RemoveDocPanel removeDocPanel;
 	
-	public OperatorWindow() {
+	public OperatorActionForm() {
 		listener = new OperatorListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 400);
