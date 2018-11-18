@@ -56,15 +56,15 @@ public class BuyerAccountForm extends JFrame {
 		
 		//create search panel
 		searchPanel = new SearchPanel(listener);
-		searchPanel.add(searchPanel, "Search");
+		contentPane.add(searchPanel, "Search");
 		
 		//create promo panel
 		promoPanel = new PromoPanel(listener);
-		promoPanel.add(promoPanel, "Promotion");
+		contentPane.add(promoPanel, "Promotion");
 		
 		//create reg panel
 		regPanel = new RegPanel(listener);
-		regPanel.add(regPanel, "Registration");
+		contentPane.add(regPanel, "Registration");
 		
 		this.pack();
 		this.setVisible(true);
