@@ -64,12 +64,13 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		}
 		
 		
-		//if back button on add document panel pressed 
+		//if back button on reg panel pressed 
 		else if(a.getSource() == frame.getRegPanel().getBack())
 		{
 			//show the home panel
 			frame.getCardLayout().show(frame.getContentPane(), "Home");	
 		}
+		
 	
 	
 	}	

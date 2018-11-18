@@ -39,6 +39,10 @@ public class LoginListener implements ActionListener{
 		if (a.getSource() == frame.getLogin()) {		
 			userSearch();
 		}
+		if (a.getSource() == frame.getGuest()) {		
+			BuyerAccountForm b = new BuyerAccountForm();
+			b.getCardLayout().show(b.getContentPane(), "Ordinary Home");	
+		}
 	}
 
 	/**

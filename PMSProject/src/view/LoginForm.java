@@ -129,6 +129,13 @@ public class LoginForm extends JFrame {
 	}	
 	
 	/**
+	 * @return the guest
+	 */
+	public JButton getGuest() {
+		return guest;
+	}
+	
+	/**
 	 * @return the userEmail
 	 */
 	public JTextField getuserEmail() {
