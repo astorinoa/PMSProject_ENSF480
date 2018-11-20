@@ -37,6 +37,9 @@ public class BuyerAccountForm extends JFrame {
 	//promotions page
 	private PromoPanel promoPanel;
 	
+	//the registered buyers email
+	private String email;
+	
 	public BuyerAccountForm() {
 		listener = new BuyerListener(this);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,5 +106,11 @@ public class BuyerAccountForm extends JFrame {
 	public CardLayout getCardLayout()
 	{
 		return cardLayout;
+	}
+	
+	public void  setEmail(String s)
+	{
+		email = s;
+		listener.setEmail(email);
 	}
 }

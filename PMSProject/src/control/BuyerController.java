@@ -3,6 +3,7 @@ package control;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.ApprovalDocument;
 import model.RegisteredBuyer;
 
 public class BuyerController extends Driver{
@@ -61,6 +62,21 @@ public class BuyerController extends Driver{
 			return r;
 		}
 		return null;
+	}
+	
+	
+	public void deleteRegUser (String email){
+		System.out.println("In controller: " + email);
+		String sql = "DELETE FROM " + regTable + " WHERE EMAIL= '" + email + "'";
+		try{
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+		}
+		catch(SQLException ex)
+		{
+			ex.printStackTrace();
+		}
+		
 	}
 	
 }
