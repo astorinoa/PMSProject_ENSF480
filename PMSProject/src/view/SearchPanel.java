@@ -126,4 +126,21 @@ public class SearchPanel extends JPanel {
 		this.add(forBack, BorderLayout.SOUTH);
 
 	}
+	
+	public JCheckBox getTitleCheckbox()
+	{
+		return title;
+	}
+	
+	
+	public JCheckBox getAuthorCheckbox()
+	{
+		return author;
+	}
+	
+	
+	public JCheckBox getTypeCheckbox()
+	{
+		return type;
+	}
 }

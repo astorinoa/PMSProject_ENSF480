@@ -19,6 +19,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	private BuyerAccountForm frame;
 	private BuyerController controller;
 	private String email;
+	
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
@@ -26,6 +27,22 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	public BuyerListener(BuyerAccountForm jf) {
 		frame = jf;
 		controller = new BuyerController();
+	}
+	
+	public void Search()
+	{
+		if(frame.getSearchPanel().getTitleCheckbox().isSelected())
+		{
+			System.out.println("Searching by title");
+		}
+		if(frame.getSearchPanel().getAuthorCheckbox().isSelected())
+		{
+			System.out.println("Searching by author");
+		}
+		if(frame.getSearchPanel().getTypeCheckbox().isSelected())
+		{
+			System.out.println("Searching by type");
+		}
 	}
 
 	/**
@@ -35,7 +52,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	public void actionPerformed(ActionEvent a) {
 		
 		/**
-		 * If registered buyer
+		 * If search
 		 */
 		//if search button on buyer home panel pressed is search documents
 		if(a.getSource() == frame.getRegHomePanel().getSearch())
@@ -43,6 +60,15 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			//show the search document frame
 			frame.getCardLayout().show(frame.getContentPane(), "Search");
 		}
+		else if(a.getSource() == frame.getOrdHomePanel().getSearch())
+		{
+			//show the search document frame
+			frame.getCardLayout().show(frame.getContentPane(), "Search");
+		}
+		
+		/**
+		 * If promotions
+		 */
 		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getRegHomePanel().getViewPromotions())
 		{
@@ -50,12 +76,38 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			frame.getCardLayout().show(frame.getContentPane(), "Promotion");
 		}
 		//if remove button on operator home panel pressed is remove document
+		else if(a.getSource() == frame.getOrdHomePanel().getViewPromotions())
+		{
+			//show the add remove frame
+			frame.getCardLayout().show(frame.getContentPane(), "Promotion");
+		}
+		
+		/**
+		 * If registration
+		 */
+		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getRegHomePanel().getUnsubscribe())
 		{
 			System.out.println(email);
 			controller.deleteRegUser(email); 
 			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
 		}
+		//if register button on reg panel pressed 
+		else if(a.getSource() == frame.getOrdHomePanel().getRegister())
+		{	
+			char [] tmp  = frame.getRegPanel().getPasswordField().getPassword();
+			String pass = new String (tmp);
+			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				
+			RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
+			new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
+			//show the registered home panel
+			frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
+			}
+		}
+	
+		
+		
+	/**
 		//if logout button on buyer home panel pressed
 		else if(a.getSource() == frame.getRegHomePanel().getLogout()) 
 		{
@@ -63,28 +115,18 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			System.exit(1);
 		}
 		
-		/**
-		 * If Ordinary Buyer
-		 */
-		
-		if(a.getSource() == frame.getOrdHomePanel().getSearch())
-		{
-			//show the search document frame
-			frame.getCardLayout().show(frame.getContentPane(), "Search");
-		}
-
-		//if remove button on operator home panel pressed is remove document
-		else if(a.getSource() == frame.getOrdHomePanel().getViewPromotions())
-		{
-			//show the add remove frame
-			frame.getCardLayout().show(frame.getContentPane(), "Promotion");
-		}
+	
 		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getOrdHomePanel().getRegister())
 		{
 			//delete account and go to ordinary home page
 			
 			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
+		}
+			else if(a.getSource() == frame.getOrdHomePanel().getRegister())
+		{
+			System.out.println("Trying to register");
+			frame.getCardLayout().show(frame.getContentPane(), "Registration");
 		}
 		//if logout button on buyer home panel pressed
 		else if(a.getSource() == frame.getOrdHomePanel().getLogout()) 
@@ -99,24 +141,11 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			//show the home panel
 			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");	
 		}
-		//if register button on reg panel pressed 
-		else if(a.getSource() == frame.getRegPanel().getRegister())
-		{
-			char [] tmp  = frame.getRegPanel().getPasswordField().getPassword();
-			String pass = new String (tmp);
-			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				
-				RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
-				new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
-				//show the registered home panel
-				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
-			}
-		}
 		
-		else if(a.getSource() == frame.getOrdHomePanel().getRegister())
-		{
-			frame.getCardLayout().show(frame.getContentPane(), "Registration");
-		}
 		
+	
+		
+	*/	
 		
 	
 	
