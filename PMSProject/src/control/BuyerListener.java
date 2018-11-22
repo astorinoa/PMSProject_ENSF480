@@ -29,21 +29,6 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		controller = new BuyerController();
 	}
 	
-	public void Search()
-	{
-		if(frame.getSearchPanel().getTitleCheckbox().isSelected())
-		{
-			System.out.println("Searching by title");
-		}
-		if(frame.getSearchPanel().getAuthorCheckbox().isSelected())
-		{
-			System.out.println("Searching by author");
-		}
-		if(frame.getSearchPanel().getTypeCheckbox().isSelected())
-		{
-			System.out.println("Searching by type");
-		}
-	}
 
 	/**
 	 * performs an action in response to the event
@@ -70,18 +55,22 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getSearchPanel().getSearchButton())
 		{
-			if(frame.getSearchPanel().getTitleCheckbox().isSelected())
-			{
-				System.out.println("Title selected");
-			}
-			else if(frame.getSearchPanel().getAuthorCheckbox().isSelected())
-			{
-				System.out.println("Auhtor selected");
-			}
-			else if(frame.getSearchPanel().getTypeCheckbox().isSelected())
-			{
-				System.out.println("Type selected");
-			}
+//			if(frame.getSearchPanel().getTitleCheckbox().isSelected())
+//			{
+//				System.out.println("Title selected");
+//			}
+//			else if(frame.getSearchPanel().getAuthorCheckbox().isSelected())
+//			{
+//				System.out.println("Auhtor selected");
+//			}
+//			else if(frame.getSearchPanel().getTypeCheckbox().isSelected())
+//			{
+//				System.out.println("Type selected");
+//			}
+//			if(frame.getSearchPanel().getButtonGroup().)
+//			{
+//				
+//			}
 			
 		}
 		

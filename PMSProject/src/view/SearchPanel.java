@@ -32,6 +32,7 @@ public class SearchPanel extends JPanel {
 	private JButton search;
 	private JButton backOnS;
 	private JButton clear;
+	private ButtonGroup group;
 	
 	/**
 	 * Constructs and formats the GUI components
@@ -50,23 +51,26 @@ public class SearchPanel extends JPanel {
 		title.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		title.setForeground(new Color(25, 25, 112));
 		title.setBackground(new Color(176, 196, 222));
-		title.addActionListener(listener);
+		//title.addActionListener(listener);
+		
 		author = new JCheckBox("Author"); 
 		author.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		author.setForeground(new Color(25, 25, 112));
 		author.setBackground(new Color(176, 196, 222));
-		author.addActionListener(listener);
+		//author.addActionListener(listener);
+		
 		type = new JCheckBox("Type"); 
 		type.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		type.setForeground(new Color(25, 25, 112));
 		type.setBackground(new Color(176, 196, 222));
-		type.addActionListener(listener);
+		//type.addActionListener(listener);
 		
 		//group radio buttons
-		ButtonGroup group = new ButtonGroup();
+		group = new ButtonGroup();
 		group.add(title);
 		group.add(author);
 		group.add(type);
+		title.setSelected(true);
 
 		JPanel top = new JPanel();
 		top.setBackground(new Color(176, 196, 222));
@@ -140,23 +144,29 @@ public class SearchPanel extends JPanel {
 	
 	public JButton getSearchButton()
 	{
-		return search;
+		return search;	
 	}
 	
-	public JCheckBox getTitleCheckbox()
+	public ButtonGroup getButtonGroup()
 	{
-		return title;
+		return group;
 	}
 	
 	
-	public JCheckBox getAuthorCheckbox()
-	{
-		return author;
-	}
-	
-	
-	public JCheckBox getTypeCheckbox()
-	{
-		return type;
-	}
+//	public JCheckBox getTitleCheckbox()
+//	{
+//		return title;
+//	}
+//	
+//	
+//	public JCheckBox getAuthorCheckbox()
+//	{
+//		return author;
+//	}
+//	
+//	
+//	public JCheckBox getTypeCheckbox()
+//	{
+//		return type;
+//	}
 }
