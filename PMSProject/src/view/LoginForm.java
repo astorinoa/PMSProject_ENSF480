@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.Dimension;
+
 import javax.swing.JPasswordField;
 import javax.swing.border.MatteBorder;
 
@@ -37,11 +39,9 @@ public class LoginForm extends JFrame {
 	 * @param objIn to communicate over socket
 	 */
 	public LoginForm() {
-		
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		listener = new LoginListener(this);
-		
-		setBounds(100, 100, 450, 300);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setPreferredSize( new Dimension(600,500));
 		JPanel contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 196, 222));
 		contentPane.setBorder(new EmptyBorder(10, 5, 5, 5));

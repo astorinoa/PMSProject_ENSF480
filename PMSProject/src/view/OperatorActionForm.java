@@ -41,8 +41,8 @@ public class OperatorActionForm extends JFrame {
 	
 	public OperatorActionForm() {
 		listener = new OperatorListener(this);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 400);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setPreferredSize( new Dimension(550,350));
 		cardLayout = new CardLayout();
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 196, 222));

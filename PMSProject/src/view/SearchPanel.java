@@ -21,9 +21,6 @@ import javax.swing.border.EmptyBorder;
 import control.BuyerListener;
 
 public class SearchPanel extends JPanel {
-//	private JCheckBox title;
-//	private JCheckBox author;
-//	private JCheckBox type;
 	private JCheckBox title;
 	private JCheckBox author;
 	private JCheckBox type;
@@ -62,11 +59,11 @@ public class SearchPanel extends JPanel {
 		type.setBackground(new Color(176, 196, 222));
 		type.addActionListener(listener);
 		
-		//group radio buttons
-		ButtonGroup group = new ButtonGroup();
-		group.add(title);
-		group.add(author);
-		group.add(type);
+//		//group radio buttons
+//		ButtonGroup group = new ButtonGroup();
+//		group.add(title);
+//		group.add(author);
+//		group.add(type);
 
 		JPanel top = new JPanel();
 		top.setBackground(new Color(176, 196, 222));
@@ -148,13 +145,11 @@ public class SearchPanel extends JPanel {
 		return title;
 	}
 	
-	
 	public JCheckBox getAuthorCheckbox()
 	{
 		return author;
 	}
-	
-	
+		
 	public JCheckBox getTypeCheckbox()
 	{
 		return type;
