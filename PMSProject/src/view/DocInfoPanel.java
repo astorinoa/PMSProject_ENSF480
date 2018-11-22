@@ -105,8 +105,7 @@ public class DocInfoPanel extends JPanel{
 		
 	}
 	
-	public JButton getBack()
-	{
+	public JButton getBack() {
 		return back;
 	}
 	
@@ -124,6 +123,10 @@ public class DocInfoPanel extends JPanel{
 	
 	public JTextArea getQuantity() {
 		return quantity;
+	}
+
+	public JButton getUpdate() {
+		return update;
 	}
 	
 }

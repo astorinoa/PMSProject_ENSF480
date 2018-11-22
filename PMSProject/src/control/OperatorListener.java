@@ -89,6 +89,13 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 			//show the home panel
 			frame.getCardLayout().show(frame.getContentPane(), "Home");
 		}
+		
+		//if update button on document info panel pressed
+		else if(a.getSource() == frame.getDocInfoPanel().getUpdate()) {
+			//update database
+			//Document toUpdate = new Document();
+			
+		}
 	}	
 	
 	@Override

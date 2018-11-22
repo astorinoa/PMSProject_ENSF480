@@ -97,7 +97,7 @@ public class EditDocumentController extends Driver{
 	}
 	
 	
-	public ArrayList<Document> getDocumentByID(int id){
+	public Document getDocumentByID(int id){
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + id ;
 		ResultSet document;
 		ArrayList<Document> temp = new ArrayList<Document>();
