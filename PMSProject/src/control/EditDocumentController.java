@@ -112,7 +112,7 @@ public class EditDocumentController extends Driver{
 						document.getString("TITLE"), 
 						document.getInt("PRICE"),
 						document.getInt("QUANTITY")));
-			}
+			} 
 		}
 		catch(SQLException e) {
 			System.out.println(e.getMessage());
