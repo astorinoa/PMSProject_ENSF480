@@ -116,7 +116,9 @@ public class EditDocumentController extends Driver{
 		catch(SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		return null;
 	}
+	
 	
 	
 	public ArrayList<ApprovalDocument> getApprovalDocuments(){
