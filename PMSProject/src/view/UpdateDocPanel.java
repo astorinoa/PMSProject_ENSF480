@@ -90,5 +90,13 @@ public class UpdateDocPanel extends JPanel{
 		return back;
 	}
 		
+	public JList<String> getDocuments()
+	{
+		return documents;
+	}
+	
+	public DefaultListModel<String> getModel(){
+		return model;
+	}
 }
 

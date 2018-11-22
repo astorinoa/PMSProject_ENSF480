@@ -20,7 +20,6 @@ public class DocInfoPanel extends JPanel{
 	private JTextArea title;
 	private JTextArea author;
 	private JTextArea price;
-	private JTextArea address;
 	private JTextArea quantity;
 	private JButton update;
 	private JButton back;
@@ -110,4 +109,21 @@ public class DocInfoPanel extends JPanel{
 	{
 		return back;
 	}
+	
+	public JTextArea getTitle() {
+		return title;
+	}
+	
+	public JTextArea getAuthor() {
+		return author;
+	}
+	
+	public JTextArea getPrice() {
+		return price;
+	}
+	
+	public JTextArea getQuantity() {
+		return quantity;
+	}
+	
 }

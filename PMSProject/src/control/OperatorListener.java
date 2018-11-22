@@ -22,13 +22,15 @@ import view.OperatorActionForm;
  */
 public class OperatorListener implements ActionListener, ListSelectionListener{
 	private OperatorActionForm frame;
-
+	private EditDocumentController d; 
+	
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
 	 */
 	public OperatorListener(OperatorActionForm jf) {
 		frame = jf;
+		d = new EditDocumentController();
 	}
 
 	/**
@@ -92,7 +94,6 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		if (e.getValueIsAdjusting()) {
-			EditDocumentController d = new EditDocumentController();
 			
 			// remove document
 			if (e.getSource() == frame.getRemoveDocPanel().getDocuments()) {
@@ -130,7 +131,24 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 					}
 				}
 			}
+			if (e.getSource() == frame.getUpdateDocPanel().getDocuments()) {
+				if(frame.getUpdateDocPanel().getDocuments().getSelectedIndex() != -1)
+				{
+					String selected = frame.getUpdateDocPanel().getDocuments().getSelectedValue();
+					addInfo(selected);
+					
+				}
+				
+			}
 		}
+	}
+	
+	public void addInfo(String info) {
+		Document doc = d.getDocumentByID(Integer.parseInt(info.substring(0,1)));
+		frame.getDocInfoPanel().getTitle().setText(doc.getTitle());
+		frame.getDocInfoPanel().getAuthor().setText(doc.getAuthor());
+		frame.getDocInfoPanel().getPrice().setText(Integer.toString(doc.getPrice()));
+		frame.getDocInfoPanel().getQuantity().setText(Integer.toString(doc.getQuantity()));
 	}
 }
 
