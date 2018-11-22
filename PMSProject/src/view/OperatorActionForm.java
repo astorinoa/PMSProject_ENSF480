@@ -36,6 +36,9 @@ public class OperatorActionForm extends JFrame {
 	// update doc page
 	private UpdateDocPanel updateDocPanel;
 	
+	// doc info panel
+	private DocInfoPanel docInfoPanel;
+	
 	// remove doc page
 	private RemoveDocPanel removeDocPanel;
 	
@@ -66,6 +69,11 @@ public class OperatorActionForm extends JFrame {
 		removeDocPanel = new RemoveDocPanel(listener);
 		contentPane.add(removeDocPanel, "Remove Documents");
 		
+		//create document info panel
+		docInfoPanel = new DocInfoPanel(listener);
+		contentPane.add(docInfoPanel, "Document Information");
+		
+		
 		this.pack();
 		this.setVisible(true);
 	}
@@ -88,6 +96,11 @@ public class OperatorActionForm extends JFrame {
 	public RemoveDocPanel getRemoveDocPanel()
 	{
 		return removeDocPanel;
+	}
+	
+	public DocInfoPanel getDocInfoPanel()
+	{
+		return docInfoPanel;
 	}
 	
 	public CardLayout getCardLayout()

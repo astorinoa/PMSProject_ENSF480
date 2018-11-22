@@ -81,6 +81,12 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 			//show the home panel
 			frame.getCardLayout().show(frame.getContentPane(), "Home");
 		}
+		
+		//if back button on document info panel pressed
+		else if(a.getSource() == frame.getDocInfoPanel().getBack()) {
+			//show the home panel
+			frame.getCardLayout().show(frame.getContentPane(), "Home");
+		}
 	}	
 	
 	@Override

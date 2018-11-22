@@ -105,4 +105,9 @@ public class DocInfoPanel extends JPanel{
 		this.add(forButton, BorderLayout.SOUTH);
 		
 	}
+	
+	public JButton getBack()
+	{
+		return back;
+	}
 }
