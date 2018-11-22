@@ -65,6 +65,25 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			//show the search document frame
 			frame.getCardLayout().show(frame.getContentPane(), "Search");
 		}
+		/**
+		 * If search button pressed
+		 */
+		else if(a.getSource() == frame.getSearchPanel().getSearchButton())
+		{
+			if(frame.getSearchPanel().getTitleCheckbox().isSelected())
+			{
+				System.out.println("Title selected");
+			}
+			else if(frame.getSearchPanel().getAuthorCheckbox().isSelected())
+			{
+				System.out.println("Auhtor selected");
+			}
+			else if(frame.getSearchPanel().getTypeCheckbox().isSelected())
+			{
+				System.out.println("Type selected");
+			}
+			
+		}
 		
 		/**
 		 * If promotions

@@ -127,6 +127,11 @@ public class SearchPanel extends JPanel {
 
 	}
 	
+	public JButton getSearchButton()
+	{
+		return search;
+	}
+	
 	public JCheckBox getTitleCheckbox()
 	{
 		return title;
