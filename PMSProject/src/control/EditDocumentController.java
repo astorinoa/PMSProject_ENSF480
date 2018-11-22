@@ -100,24 +100,22 @@ public class EditDocumentController extends Driver{
 	public Document getDocumentByID(int id){
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + id ;
 		ResultSet document;
-		ArrayList<Document> temp = new ArrayList<Document>();
 		try {
 			stmt = conn.createStatement();
 			document = stmt.executeQuery(sql);
-			while(document.next())
+			if(document.next())
 			{
-				temp.add(new Document(document.getInt("DOCUMENT_ID"),
+				return new Document(document.getInt("DOCUMENT_ID"),
 						document.getString("TYPE"), 
 						document.getString("AUTHOR"), 
 						document.getString("TITLE"), 
 						document.getInt("PRICE"),
-						document.getInt("QUANTITY")));
+						document.getInt("QUANTITY"));
 			} 
 		}
 		catch(SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		return temp;
 	}
 	
 	
