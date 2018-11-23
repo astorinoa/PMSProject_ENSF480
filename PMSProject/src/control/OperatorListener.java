@@ -22,13 +22,17 @@ import view.OperatorActionForm;
  */
 public class OperatorListener implements ActionListener, ListSelectionListener{
 	private OperatorActionForm frame;
-
+	private EditDocumentController d; 
+	private int tempId;
+	private String tempType;
+	
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
 	 */
 	public OperatorListener(OperatorActionForm jf) {
 		frame = jf;
+		d = new EditDocumentController();
 	}
 
 	/**
@@ -81,12 +85,32 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 			//show the home panel
 			frame.getCardLayout().show(frame.getContentPane(), "Home");
 		}
+		
+		//if back button on document info panel pressed
+		else if(a.getSource() == frame.getDocInfoPanel().getBack()) {
+			//show the home panel
+			frame.getCardLayout().show(frame.getContentPane(), "Update Documents");
+		}
+		
+		//if update button on document info panel pressed
+		else if(a.getSource() == frame.getDocInfoPanel().getUpdate()) {
+			//update database	
+			Document toUpdate = new Document(tempId, tempType, frame.getDocInfoPanel().getAuthor().getText(), 
+						frame.getDocInfoPanel().getTitle().getText(), Integer.parseInt(frame.getDocInfoPanel().getPrice().getText()), 
+						Integer.parseInt(frame.getDocInfoPanel().getQuantity().getText()));
+			d.updateDocument(toUpdate);
+			frame.getUpdateDocPanel().getModel().removeAllElements();
+			for(int i = 0; i < d.getDocuments().size(); i++)
+			{
+				frame.getUpdateDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
+			}
+			
+		}
 	}	
 	
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		if (e.getValueIsAdjusting()) {
-			EditDocumentController d = new EditDocumentController();
 			
 			// remove document
 			if (e.getSource() == frame.getRemoveDocPanel().getDocuments()) {
@@ -124,7 +148,32 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 					}
 				}
 			}
+			if (e.getSource() == frame.getUpdateDocPanel().getDocuments()) {
+				if(frame.getUpdateDocPanel().getDocuments().getSelectedIndex() != -1)
+				{
+					String selected = frame.getUpdateDocPanel().getDocuments().getSelectedValue();
+					addInfo(selected);
+					frame.getCardLayout().show(frame.getContentPane(), "Document Information");
+					
+				}
+				
+			}
 		}
 	}
+	
+	public void addInfo(String info) {
+		int findId = info.indexOf(" ");
+		tempId = Integer.parseInt(info.substring(0,(findId)));
+		int findType = info.indexOf("type: ");
+		int findEndType = info.indexOf(" - quantity avaliable: ");
+		tempType = info.substring((findType+6),(findEndType));
+		System.out.print(info.substring((findType+6),(findEndType)));
+		Document doc = d.getDocumentByID(tempId);
+		frame.getDocInfoPanel().getTitle().setText(doc.getTitle());
+		frame.getDocInfoPanel().getAuthor().setText(doc.getAuthor());
+		frame.getDocInfoPanel().getPrice().setText(Integer.toString(doc.getPrice()));
+		frame.getDocInfoPanel().getQuantity().setText(Integer.toString(doc.getQuantity()));
+	}
+	
 }
 

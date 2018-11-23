@@ -154,4 +154,34 @@ public class PlaceOrderPanel extends JPanel {
 		this.add(forButton, BorderLayout.SOUTH);
 	}
 	
+	public JButton getMakePayment()
+	{
+		return pay;
+	}
+	
+	public String getEmail()
+	{
+		return email.getText();
+	}
+	
+	public String getItem()
+	{
+		return item.getText();
+	}
+	
+	public String getQuantity()
+	{
+		return quantity.getText();
+	}
+	
+	public String getCard()
+	{
+		return card.getText();
+	}
+	
+	public String getCVV()
+	{
+		return cvv.getText();
+	}
+	
 }

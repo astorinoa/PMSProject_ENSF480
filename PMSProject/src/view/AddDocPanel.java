@@ -94,7 +94,7 @@ public class AddDocPanel extends JPanel {
 		return back;
 	}
 	
-	public JList getDocuments()
+	public JList<String> getDocuments()
 	{
 		return approvalQueue;
 	}

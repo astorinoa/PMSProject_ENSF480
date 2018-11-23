@@ -2,13 +2,13 @@ package view;
 
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
-import control.OperatorListener;
 
 public class BuyerAccountForm extends JFrame {
 
@@ -42,8 +42,8 @@ public class BuyerAccountForm extends JFrame {
 	
 	public BuyerAccountForm() {
 		listener = new BuyerListener(this);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 400);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setPreferredSize( new Dimension(550,350));
 		cardLayout = new CardLayout();
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 196, 222));
@@ -101,6 +101,11 @@ public class BuyerAccountForm extends JFrame {
 
 	public PromoPanel getPromoPanel() {
 		return promoPanel;
+	}
+	
+	public PlaceOrderPanel getOrderPanel()
+	{
+		return orderPanel;
 	}
 	
 	public CardLayout getCardLayout()

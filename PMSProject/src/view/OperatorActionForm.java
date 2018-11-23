@@ -36,13 +36,16 @@ public class OperatorActionForm extends JFrame {
 	// update doc page
 	private UpdateDocPanel updateDocPanel;
 	
+	// doc info panel
+	private DocInfoPanel docInfoPanel;
+	
 	// remove doc page
 	private RemoveDocPanel removeDocPanel;
 	
 	public OperatorActionForm() {
 		listener = new OperatorListener(this);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 600, 400);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setPreferredSize( new Dimension(550,350));
 		cardLayout = new CardLayout();
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 196, 222));
@@ -66,6 +69,11 @@ public class OperatorActionForm extends JFrame {
 		removeDocPanel = new RemoveDocPanel(listener);
 		contentPane.add(removeDocPanel, "Remove Documents");
 		
+		//create document info panel
+		docInfoPanel = new DocInfoPanel(listener);
+		contentPane.add(docInfoPanel, "Document Information");
+		
+		
 		this.pack();
 		this.setVisible(true);
 	}
@@ -88,6 +96,11 @@ public class OperatorActionForm extends JFrame {
 	public RemoveDocPanel getRemoveDocPanel()
 	{
 		return removeDocPanel;
+	}
+	
+	public DocInfoPanel getDocInfoPanel()
+	{
+		return docInfoPanel;
 	}
 	
 	public CardLayout getCardLayout()

@@ -91,6 +91,27 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			Search(selection);
 		}
 		
+		
+		/**
+		 * Make Order
+		 */
+		//if remove button on operator home panel pressed is remove document
+		else if(a.getSource() == frame.getRegHomePanel().getPlaceOrder())
+		{
+			//show the add remove frame
+			frame.getCardLayout().show(frame.getContentPane(), "Order");
+		}
+		else if(a.getSource() == frame.getOrdHomePanel().getPlaceOrder())
+		{
+			//show the add remove frame
+			frame.getCardLayout().show(frame.getContentPane(), "Order");
+		}
+		else if(a.getSource() == frame.getOrderPanel().getMakePayment())
+		{
+			
+		}
+		
+		
 		/**
 		 * If promotions
 		 */
