@@ -21,9 +21,6 @@ import javax.swing.border.EmptyBorder;
 import control.BuyerListener;
 
 public class SearchPanel extends JPanel {
-//	private JCheckBox title;
-//	private JCheckBox author;
-//	private JCheckBox type;
 	private JCheckBox title;
 	private JCheckBox author;
 	private JCheckBox type;
@@ -172,6 +169,7 @@ public class SearchPanel extends JPanel {
 		return 0;//error no button selected
 	}
 	
+
 	public String getSearchText()
 	{
 		return searchVal.getText();
@@ -182,20 +180,4 @@ public class SearchPanel extends JPanel {
 		return results;
 	}
 	
-//	public JCheckBox getTitleCheckbox()
-//	{
-//		return title;
-//	}
-//	
-//	
-//	public JCheckBox getAuthorCheckbox()
-//	{
-//		return author;
-//	}
-//	
-//	
-//	public JCheckBox getTypeCheckbox()
-//	{
-//		return type;
-//	}
 }
