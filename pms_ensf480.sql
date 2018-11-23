@@ -108,7 +108,7 @@ CREATE TABLE `order` (
   `document_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `payment_type` varchar(45) NOT NULL,
-  `card_number` int(11) NOT NULL,
+  `card_number` bigint(20) NOT NULL,
   `payment_cvv` int(3) NOT NULL,
   PRIMARY KEY (`order_id`,`document_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -120,7 +120,7 @@ CREATE TABLE `order` (
 
 LOCK TABLES `order` WRITE;
 /*!40000 ALTER TABLE `order` DISABLE KEYS */;
-INSERT INTO `order` VALUES (1,2,3,'Mastercard',123456,123),(2,1,1,'Visa',234567,345),(3,5,4,'Visa',345678,664),(4,3,1,'Mastercard',123456,123),(5,2,2,'Visa',789654,243),(6,1,1,'Mastercard',246657,121);
+INSERT INTO `order` VALUES (1,2,3,'Mastercard',1234545678765436,123),(2,1,1,'Visa',2345678927834793,345),(3,5,4,'Visa',3456783235435235,664),(4,3,1,'Mastercard',1252523456268980,123),(5,2,2,'Visa',7896549207402793,243),(6,1,1,'Mastercard',2466572298172429,121);
 /*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,4 +184,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-23 15:20:13
+-- Dump completed on 2018-11-23 16:06:35
