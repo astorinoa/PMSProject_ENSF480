@@ -16,6 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `approval_documents`
+--
+
+DROP TABLE IF EXISTS `approval_documents`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `approval_documents` (
+  `document_id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(45) DEFAULT NULL,
+  `author` varchar(45) DEFAULT NULL,
+  `title` varchar(100) NOT NULL,
+  `price` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  PRIMARY KEY (`document_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `approval_documents`
+--
+
+LOCK TABLES `approval_documents` WRITE;
+/*!40000 ALTER TABLE `approval_documents` DISABLE KEYS */;
+INSERT INTO `approval_documents` VALUES (11,'book','John Carter','The Heist',9,2),(12,'magazine','Sparkles','Glitter Bop',11,4),(13,'journal','Moody Judy','Life',3,2),(14,'book','Jeff','21 JumpStreet',13,1);
+/*!40000 ALTER TABLE `approval_documents` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `document`
 --
 
@@ -30,7 +58,7 @@ CREATE TABLE `document` (
   `price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   PRIMARY KEY (`document_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +83,7 @@ CREATE TABLE `operator` (
   `email` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`operator_id`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +111,7 @@ CREATE TABLE `order` (
   `card_number` int(11) NOT NULL,
   `payment_cvv` int(3) NOT NULL,
   PRIMARY KEY (`order_id`,`document_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -109,7 +137,7 @@ CREATE TABLE `promotion` (
   `enddate` varchar(45) DEFAULT NULL,
   `content` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`promotion_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +162,7 @@ CREATE TABLE `registered_buyer` (
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`buyer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,4 +184,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-17 13:59:44
+-- Dump completed on 2018-11-23 15:20:13

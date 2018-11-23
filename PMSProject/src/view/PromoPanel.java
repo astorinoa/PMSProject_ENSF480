@@ -21,9 +21,12 @@ import control.BuyerListener;
 public class PromoPanel extends JPanel {
 	private JTextArea promotions;
 	private JButton back;
+	BuyerListener listener;
 	
 	public PromoPanel(BuyerListener listener) {
 		super();
+		
+		this.listener = listener;
 		
 		this.setBackground(new Color(176, 196, 222));
 		this.setLayout(new BorderLayout(0, 0));
@@ -51,21 +54,10 @@ public class PromoPanel extends JPanel {
 		JScrollPane scroll = new JScrollPane(promotions, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		middle.add(scroll, BorderLayout.CENTER);
 
-		// need to fill documents jlist with approvalQueue
-		//try {
-	
-
-		//	prof.setCourses((ArrayList<Course>) objIn.readObject());
-		//	for(int i = 0; i < prof.getCourses().size(); i++)
-		//	{
-		//		model.addElement(prof.getCourses().get(i).toString());
-		//	}
-		//} catch (IOException e) {
-		//	e.printStackTrace();
-		//} catch(ClassNotFoundException e)
-		//{
-		//	System.err.println(e.getMessage());
-		//}
+////////////////////////////////////
+		
+		
+		
 		
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(176, 196, 222));

@@ -60,7 +60,6 @@ public class LoginListener implements ActionListener{
 				RegisteredBuyer reg = validate.searchRegUser(frame.getuserEmail().getText(), pass);
 				RegisteredBuyer regBuyer = new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
 				BuyerAccountForm r = new BuyerAccountForm();
-				System.out.println("In loginlistener: " + frame.getuserEmail().getText());
 				r.setEmail(frame.getuserEmail().getText());
 			}
 			else if(type.equals("Operator"))
