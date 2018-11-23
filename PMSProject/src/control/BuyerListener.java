@@ -57,10 +57,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		}
 	}
 	
-	public void Order(int type)
-	{
-		
-	}
+
 
 	/**
 	 * performs an action in response to the event
@@ -114,24 +111,32 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		else if(a.getSource() == frame.getOrderPanel().getMakePayment())
 		{
 			String email = frame.getOrderPanel().getEmail();
-			System.out.println(email);
 			String item = frame.getOrderPanel().getItem();
-			System.out.println(item);
 			String quantity = frame.getOrderPanel().getQuantity();
-			System.out.println(quantity);
 			String cvv = frame.getOrderPanel().getCVV();
-			System.out.println(cvv);
 			String card = frame.getOrderPanel().getCard();
-			System.out.println(card);
-			System.out.println(frame.getOrderPanel().getCheckboxSelection());
-//			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				
-//				RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
-//				new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
-//				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
-//			}
+			String type = null;
+			if(frame.getOrderPanel().getCheckboxSelection()==1)
+			{
+				type = "Visa";
+			}
+			else if(frame.getOrderPanel().getCheckboxSelection()==2)
+			{
+				type = "Mastercard";
+			}
+			else if(frame.getOrderPanel().getCheckboxSelection()==3)
+			{
+				type = "American Express";
+			}
+			if(!email.equals("") && !item.equals("") && !quantity.equals("") && !cvv.equals("") && !card.equals(""))
+			{
+				ProcessInventoryController controller = new ProcessInventoryController();
+				controller.order(type, email, item, quantity, cvv, card);
+			}
+			/**
+			 *  TODO: Switch to home panel depending on which type of buyer
+			 */
 		}
-		
-		
 		/**
 		 * If promotions
 		 */
