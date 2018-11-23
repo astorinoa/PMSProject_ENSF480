@@ -42,6 +42,6 @@ public class ApprovalDocument {
 	}	
 	
 	public String toString() {
-		return (id + " - " + title + " - by: "+ author + " - quantity avaliable: "+ quantity + " - $"+ price + " each" );
+		return (id + " - " + title + " - by: "+ author + " - type: " + type+ " - quantity avaliable: "+ quantity + " - $"+ price + " each" );
 	}
 }
