@@ -23,6 +23,8 @@ import view.OperatorActionForm;
 public class OperatorListener implements ActionListener, ListSelectionListener{
 	private OperatorActionForm frame;
 	private EditDocumentController d; 
+	private int tempId;
+	private String tempType;
 	
 	/**
 	 * Constructor for the listener
@@ -87,13 +89,21 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 		//if back button on document info panel pressed
 		else if(a.getSource() == frame.getDocInfoPanel().getBack()) {
 			//show the home panel
-			frame.getCardLayout().show(frame.getContentPane(), "Home");
+			frame.getCardLayout().show(frame.getContentPane(), "Update Documents");
 		}
 		
 		//if update button on document info panel pressed
 		else if(a.getSource() == frame.getDocInfoPanel().getUpdate()) {
-			//update database
-			//Document toUpdate = new Document();
+			//update database	
+			Document toUpdate = new Document(tempId, tempType, frame.getDocInfoPanel().getAuthor().getText(), 
+						frame.getDocInfoPanel().getTitle().getText(), Integer.parseInt(frame.getDocInfoPanel().getPrice().getText()), 
+						Integer.parseInt(frame.getDocInfoPanel().getQuantity().getText()));
+			d.updateDocument(toUpdate);
+			frame.getUpdateDocPanel().getModel().removeAllElements();
+			for(int i = 0; i < d.getDocuments().size(); i++)
+			{
+				frame.getUpdateDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
+			}
 			
 		}
 	}	
@@ -143,6 +153,7 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 				{
 					String selected = frame.getUpdateDocPanel().getDocuments().getSelectedValue();
 					addInfo(selected);
+					frame.getCardLayout().show(frame.getContentPane(), "Document Information");
 					
 				}
 				
@@ -151,11 +162,18 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 	}
 	
 	public void addInfo(String info) {
-		Document doc = d.getDocumentByID(Integer.parseInt(info.substring(0,1)));
+		int findId = info.indexOf(" ");
+		tempId = Integer.parseInt(info.substring(0,(findId)));
+		int findType = info.indexOf("type: ");
+		int findEndType = info.indexOf(" - quantity avaliable: ");
+		tempType = info.substring((findType+6),(findEndType));
+		System.out.print(info.substring((findType+6),(findEndType)));
+		Document doc = d.getDocumentByID(tempId);
 		frame.getDocInfoPanel().getTitle().setText(doc.getTitle());
 		frame.getDocInfoPanel().getAuthor().setText(doc.getAuthor());
 		frame.getDocInfoPanel().getPrice().setText(Integer.toString(doc.getPrice()));
 		frame.getDocInfoPanel().getQuantity().setText(Integer.toString(doc.getQuantity()));
 	}
+	
 }
 
