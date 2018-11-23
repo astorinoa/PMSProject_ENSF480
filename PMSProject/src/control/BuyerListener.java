@@ -112,9 +112,13 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		{
 			String email = frame.getOrderPanel().getEmail();
 			String item = frame.getOrderPanel().getItem();
+			int i = Integer.parseInt(item);
 			String quantity = frame.getOrderPanel().getQuantity();
+			int q = Integer.parseInt(quantity);
 			String cvv = frame.getOrderPanel().getCVV();
+			int cv = Integer.parseInt(cvv);
 			String card = frame.getOrderPanel().getCard();
+			int c = Integer.parseInt(card);
 			String type = null;
 			if(frame.getOrderPanel().getCheckboxSelection()==1)
 			{
@@ -131,7 +135,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			if(!email.equals("") && !item.equals("") && !quantity.equals("") && !cvv.equals("") && !card.equals(""))
 			{
 				ProcessInventoryController controller = new ProcessInventoryController();
-				controller.order(type, email, item, quantity, cvv, card);
+				controller.order(type, i, q, cv, c);
 			}
 			/**
 			 *  TODO: Switch to home panel depending on which type of buyer
