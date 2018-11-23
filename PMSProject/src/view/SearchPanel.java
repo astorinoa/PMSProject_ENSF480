@@ -28,7 +28,6 @@ public class SearchPanel extends JPanel {
 	private JTextArea results;
 	private JButton search;
 	private JButton backOnS;
-	private JButton clear;
 	private ButtonGroup group;
 	
 	/**
@@ -126,15 +125,9 @@ public class SearchPanel extends JPanel {
 		backOnS.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		backOnS.setForeground(new Color(25, 25, 112));
 		backOnS.addActionListener(listener);
-		clear = new JButton();
-		clear.setText("Clear Search Results");
-		clear.setFont(new Font("PingFang TC", Font.PLAIN, 15));
-		clear.setForeground(new Color(25, 25, 112));
-		clear.addActionListener(listener);
 		forBack.setBackground(new Color(176, 196, 222));
 		forBack.setLayout(new BoxLayout(forBack, BoxLayout.X_AXIS));
 		forBack.add(backOnS);
-		forBack.add(clear);
 
 		this.add(top, BorderLayout.NORTH);
 		this.add(middle, BorderLayout.CENTER);
@@ -145,6 +138,10 @@ public class SearchPanel extends JPanel {
 	public JButton getSearchButton()
 	{
 		return search;	
+	}
+	
+	public JButton getBackButton() {
+		return backOnS;
 	}
 	
 	/**

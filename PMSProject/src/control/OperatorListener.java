@@ -167,7 +167,6 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 		int findType = info.indexOf("type: ");
 		int findEndType = info.indexOf(" - quantity avaliable: ");
 		tempType = info.substring((findType+6),(findEndType));
-		System.out.print(info.substring((findType+6),(findEndType)));
 		Document doc = d.getDocumentByID(tempId);
 		frame.getDocInfoPanel().getTitle().setText(doc.getTitle());
 		frame.getDocInfoPanel().getAuthor().setText(doc.getAuthor());

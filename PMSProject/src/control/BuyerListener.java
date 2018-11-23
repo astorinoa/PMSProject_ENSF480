@@ -66,9 +66,8 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	public void actionPerformed(ActionEvent a) {
 		 
 		/**
-		 * If search
+		 * If search button pressed on home panel
 		 */
-		//if search button on buyer home panel pressed is search documents
 		if(a.getSource() == frame.getRegHomePanel().getSearch())
 		{
 			//show the search document frame
@@ -80,7 +79,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			frame.getCardLayout().show(frame.getContentPane(), "Search");
 		}
 		/**
-		 * If search button pressed
+		 * If search button pressed on search panel
 		 */
 		else if(a.getSource() == frame.getSearchPanel().getSearchButton())
 		{
@@ -92,7 +91,13 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			}
 			Search(selection);
 		}
+		/**
+		 * If back button pressed on search panel
+		 */
+		else if(a.getSource() == frame.getSearchPanel().getBackButton()) 
+		{
 		
+		}
 		
 		/**
 		 * Make Order
