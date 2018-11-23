@@ -51,18 +51,21 @@ public class SearchPanel extends JPanel {
 		title.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		title.setForeground(new Color(25, 25, 112));
 		title.setBackground(new Color(176, 196, 222));
+		title.setActionCommand("title");
 		//title.addActionListener(listener);
 		
 		author = new JCheckBox("Author"); 
 		author.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		author.setForeground(new Color(25, 25, 112));
 		author.setBackground(new Color(176, 196, 222));
+		author.setActionCommand("author");
 		//author.addActionListener(listener);
 		
 		type = new JCheckBox("Type"); 
 		type.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		type.setForeground(new Color(25, 25, 112));
 		type.setBackground(new Color(176, 196, 222));
+		type.setActionCommand("type");
 		//type.addActionListener(listener);
 		
 		//group radio buttons
@@ -147,11 +150,37 @@ public class SearchPanel extends JPanel {
 		return search;	
 	}
 	
-	public ButtonGroup getButtonGroup()
+	/**
+	 * Returns different int for each checkbox selected, 1 for title, 2 for author, 3 for type, 0 for error
+	 * @return an int indicating which checkbox is selected
+	 */
+	public int getCheckboxSelection()
 	{
-		return group;
+		if(title.isSelected())
+		{
+			return 1;
+		}
+		else if(author.isSelected())
+		{
+			return 2;
+		}
+		else if(type.isSelected())
+		{
+			return 3;
+		}
+			
+		return 0;//error no button selected
 	}
 	
+	public String getSearchText()
+	{
+		return searchVal.getText();
+	}
+	
+	public JTextArea getList()
+	{
+		return results;
+	}
 	
 //	public JCheckBox getTitleCheckbox()
 //	{

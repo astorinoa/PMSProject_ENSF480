@@ -29,6 +29,15 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		controller = new BuyerController();
 	}
 	
+	public void Search(int type)
+	{
+		System.out.println(frame.getSearchPanel().getSearchText());
+		EditDocumentController d = new EditDocumentController();
+		for(int i = 0; i < d.getDocuments().size(); i++)
+		{
+			frame.getSearchPanel().getList().append(d.getDocuments().get(i).toString() + "\n");
+		}
+	}
 
 	/**
 	 * performs an action in response to the event
@@ -55,23 +64,13 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getSearchPanel().getSearchButton())
 		{
-//			if(frame.getSearchPanel().getTitleCheckbox().isSelected())
-//			{
-//				System.out.println("Title selected");
-//			}
-//			else if(frame.getSearchPanel().getAuthorCheckbox().isSelected())
-//			{
-//				System.out.println("Auhtor selected");
-//			}
-//			else if(frame.getSearchPanel().getTypeCheckbox().isSelected())
-//			{
-//				System.out.println("Type selected");
-//			}
-//			if(frame.getSearchPanel().getButtonGroup().)
-//			{
-//				
-//			}
-			
+			int selection = frame.getSearchPanel().getCheckboxSelection();
+			if(selection == 0) 
+			{
+				System.out.println("Error in Checkbox selected on Search panel");
+				System.exit(1);
+			}
+			Search(selection);
 		}
 		
 		/**
