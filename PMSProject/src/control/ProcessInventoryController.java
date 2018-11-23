@@ -14,7 +14,7 @@ public class ProcessInventoryController extends Driver {
 		System.out.println("In order");
 		String sql = "INSERT INTO " + orderTable +
 				" (`document_id`, `quantity`, `payment_type`, `card_number`, `payment_cvv` ) " +
-				 " VALUES ("+ item +", " + quantity +", '" + type +"', " + card +", " + cvv + ");";
+				 " VALUES ("+ item +", " + quantity +", '" + type +"', " + card +", " + cvv + ")";
 		System.out.println(sql);
 		try{
 			stmt = conn.createStatement();
