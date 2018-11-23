@@ -62,7 +62,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	 */
 	@Override
 	public void actionPerformed(ActionEvent a) {
-		
+		 
 		/**
 		 * If search
 		 */
