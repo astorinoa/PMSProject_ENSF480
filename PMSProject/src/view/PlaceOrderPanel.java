@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -90,6 +91,13 @@ public class PlaceOrderPanel extends JPanel {
 		am.setForeground(new Color(25, 25, 112));
 		am.setBackground(new Color(176, 196, 222));
 		am.addActionListener(listener);
+		
+		//group the checkboxes
+		ButtonGroup group = new ButtonGroup();
+		group.add(visa);
+		group.add(mc);
+		group.add(am);
+		visa.setSelected(true);
 		
 		JPanel toPayBy =  new JPanel();
 		toPayBy.setLayout(new BoxLayout(toPayBy, BoxLayout.X_AXIS));
@@ -182,6 +190,28 @@ public class PlaceOrderPanel extends JPanel {
 	public String getCVV()
 	{
 		return cvv.getText();
+	}
+	
+	/**
+	 * Returns different int for each checkbox selected, 1 for visa, 2 for mc, 3 for am, 0 for error
+	 * @return an int indicating which checkbox is selected
+	 */
+	public int getCheckboxSelection()
+	{
+		if(visa.isSelected())
+		{
+			return 1;
+		}
+		else if(mc.isSelected())
+		{
+			return 2;
+		}
+		else if(am.isSelected())
+		{
+			return 3;
+		}
+			
+		return 0;//error no button selected
 	}
 	
 }

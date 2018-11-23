@@ -56,6 +56,11 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			}
 		}
 	}
+	
+	public void Order(int type)
+	{
+		
+	}
 
 	/**
 	 * performs an action in response to the event
@@ -108,7 +113,22 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		}
 		else if(a.getSource() == frame.getOrderPanel().getMakePayment())
 		{
-			
+			String email = frame.getOrderPanel().getEmail();
+			System.out.println(email);
+			String item = frame.getOrderPanel().getItem();
+			System.out.println(item);
+			String quantity = frame.getOrderPanel().getQuantity();
+			System.out.println(quantity);
+			String cvv = frame.getOrderPanel().getCVV();
+			System.out.println(cvv);
+			String card = frame.getOrderPanel().getCard();
+			System.out.println(card);
+			System.out.println(frame.getOrderPanel().getCheckboxSelection());
+//			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				
+//				RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
+//				new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
+//				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
+//			}
 		}
 		
 		
@@ -146,7 +166,6 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		}
 		if(a.getSource() == frame.getRegPanel().getRegister())
 		{
-			System.out.println("Registering");
 			char [] tmp  = frame.getRegPanel().getPasswordField().getPassword();
 			String pass = new String (tmp);
 			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				

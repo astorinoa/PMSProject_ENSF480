@@ -65,7 +65,7 @@ public class SearchPanel extends JPanel {
 		type.setActionCommand("type");
 		//type.addActionListener(listener);
 		
-		//group radio buttons
+		//group checkboxes
 		group = new ButtonGroup();
 		group.add(title);
 		group.add(author);
