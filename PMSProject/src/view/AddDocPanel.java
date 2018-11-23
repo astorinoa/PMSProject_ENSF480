@@ -18,12 +18,6 @@ import javax.swing.border.EmptyBorder;
 import control.EditDocumentController;
 import control.OperatorListener;
 
-
-//PLEASE NOTE
-// add documents from approval queue only. 
-// ASSUME: all submissions made by authors would go the the approval queue.
-
-
 public class AddDocPanel extends JPanel {
 	private DefaultListModel<String> model;
 	private JList <String> approvalQueue;
