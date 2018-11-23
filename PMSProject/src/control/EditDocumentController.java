@@ -120,7 +120,6 @@ public class EditDocumentController extends Driver{
 	}
 	
 	
-	
 	public ArrayList<ApprovalDocument> getApprovalDocuments(){
 		String sql = "SELECT * FROM " + approveTable;
 		ResultSet document;
@@ -143,4 +142,5 @@ public class EditDocumentController extends Driver{
 		}
 		return temp;
 	}
+	
 }
