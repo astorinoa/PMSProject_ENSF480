@@ -32,10 +32,28 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	public void Search(int type)
 	{
 		System.out.println(frame.getSearchPanel().getSearchText());
-		EditDocumentController d = new EditDocumentController();
-		for(int i = 0; i < d.getDocuments().size(); i++)
-		{
-			frame.getSearchPanel().getList().append(d.getDocuments().get(i).toString() + "\n");
+		ViewDocumentsController d = new ViewDocumentsController();
+		frame.getSearchPanel().getList().setText("");
+		if(type == 1)
+		{	
+			for(int i = 0; i < d.getDocumentsByTitle(frame.getSearchPanel().getSearchText()).size(); i++)
+			{
+				frame.getSearchPanel().getList().append(d.getDocumentsByTitle(frame.getSearchPanel().getSearchText()).get(i).toString() + "\n");
+			}
+		}
+		else if(type == 2)
+		{	
+			for(int i = 0; i < d.getDocumentsByAuthor(frame.getSearchPanel().getSearchText()).size(); i++)
+			{
+				frame.getSearchPanel().getList().append(d.getDocumentsByAuthor(frame.getSearchPanel().getSearchText()).get(i).toString() + "\n");
+			}
+		}
+		else if(type == 3)
+		{	
+			for(int i = 0; i < d.getDocumentsByType(frame.getSearchPanel().getSearchText()).size(); i++)
+			{
+				frame.getSearchPanel().getList().append(d.getDocumentsByType(frame.getSearchPanel().getSearchText()).get(i).toString() + "\n");
+			}
 		}
 	}
 
