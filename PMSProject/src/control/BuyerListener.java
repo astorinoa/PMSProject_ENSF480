@@ -141,13 +141,18 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		//if register button on reg panel pressed 
 		else if(a.getSource() == frame.getOrdHomePanel().getRegister())
 		{	
+			frame.getCardLayout().show(frame.getContentPane(), "Registration");
+			
+		}
+		if(a.getSource() == frame.getRegPanel().getRegister())
+		{
+			System.out.println("Registering");
 			char [] tmp  = frame.getRegPanel().getPasswordField().getPassword();
 			String pass = new String (tmp);
 			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				
-			RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
-			new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
-			//show the registered home panel
-			frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
+				RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
+				new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
+				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
 			}
 		}
 	
