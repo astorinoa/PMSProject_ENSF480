@@ -51,7 +51,7 @@ public class LoginListener implements ActionListener{
 	 * communicates with backend to search for what user type is trying to login
 	 */
 	public void userSearch() {
-		if (!frame.getuserEmail().getText().equals("")) {
+		if (!frame.getuserEmail().getText().equals("") && !frame.getPasswordField().equals("")) {
 			char [] tmp = frame.getPasswordField().getPassword();
 			String pass = new String (tmp);
 			String type = validate.readCheck(frame.getuserEmail().getText(), pass);
