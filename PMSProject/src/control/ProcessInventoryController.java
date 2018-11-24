@@ -12,7 +12,7 @@ public class ProcessInventoryController extends Driver {
 	}
 	
 	//Adds order to the database
-	public String makeOrder(String type, int item, int quantity, int cvv, long card)
+	public String checkOrder(String type, int item, int quantity, int cvv, long card)
 	{
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + item ;
 		ResultSet document;
@@ -41,6 +41,57 @@ public class ProcessInventoryController extends Driver {
 		if (d.getQuantity() < quantity) {
 			return "not enough quantity";
 		}
+		return "done";
+	}
+	
+	public int getPrice (int item, int quantity)
+	{
+		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + item ;
+		ResultSet document;
+		Document d = null;
+		try {
+			stmt = conn.createStatement();
+			document = stmt.executeQuery(sql);
+			if(document.next())
+			{
+				d = new Document(document.getInt("DOCUMENT_ID"),
+						document.getString("TYPE"), 
+						document.getString("AUTHOR"), 
+						document.getString("TITLE"), 
+						document.getInt("PRICE"),
+						document.getInt("QUANTITY"));
+			} 
+		}		
+		catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return (d.getPrice() * quantity);
+	}
+	
+	
+	
+	public void placeOrder(String type, int item, int quantity, int cvv, long card)
+	{
+		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + item ;
+		ResultSet document;
+		Document d = null;
+		try {
+			stmt = conn.createStatement();
+			document = stmt.executeQuery(sql);
+			if(document.next())
+			{
+				d = new Document(document.getInt("DOCUMENT_ID"),
+						document.getString("TYPE"), 
+						document.getString("AUTHOR"), 
+						document.getString("TITLE"), 
+						document.getInt("PRICE"),
+						document.getInt("QUANTITY"));
+			} 
+		}		
+		catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
 		
 		String sql2 = "INSERT INTO `"+orderTable+ "` (`document_id`, `quantity`, `payment_type`, `card_number`, `payment_cvv`) VALUES ( '"
 				+ item+ "', '" + quantity +"', '"+ type + "', '"+ card +"', '"+ cvv +"' )";
@@ -61,6 +112,6 @@ public class ProcessInventoryController extends Driver {
 		{
 			e.printStackTrace();
 		}
-		return "done";
 	}
+	
 }

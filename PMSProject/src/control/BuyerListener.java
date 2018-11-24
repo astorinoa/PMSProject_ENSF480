@@ -23,7 +23,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	private BuyerAccountForm frame;
 	private BuyerController controller;
 	private String email;
-	private Buyer b;
+	private Buyer b; 
 	
 	/**
 	 * Constructor for the listener
@@ -156,7 +156,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 				long c = Long.parseLong(card);
 				ProcessInventoryController controller = new ProcessInventoryController();
 				//make order should not be made until the final make payment button is clikced on payment panel
-				String reply = controller.makeOrder(type, i, q, cv, c);
+				String reply = controller.checkOrder(type, i, q, cv, c);
 				if (reply.equals("not valid id")) {
 					JOptionPane.showMessageDialog(null, "Error: The document ID entered does not exist, please try again.", 
 							"Error Message", JOptionPane.ERROR_MESSAGE);
@@ -165,13 +165,12 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 					JOptionPane.showMessageDialog(null, "Error: The quantity requested for the document selected is not avaliable, please try again.", 
 							"Error Message", JOptionPane.ERROR_MESSAGE);
 				}
-				//this should be moved to after the make paymnt button is clicked on payment panel
-//				else if (reply.equals("done")) {
-//					JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
-//							"Message", JOptionPane.INFORMATION_MESSAGE);
-//				}
-				//proceed to payment panel
-				frame.getCardLayout().show(frame.getContentPane(), "Payment");
+				else if (reply.equals("done")) {
+					int price = controller.getPrice(i, q);
+					frame.getPaymentPanel().setPrice(price);
+					//proceed to payment panel
+					frame.getCardLayout().show(frame.getContentPane(), "Payment");
+				}
 			}
 		}
 		/**
@@ -187,6 +186,38 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			//move reply done thing to here
 			//move make order where actually added to databses here
 			//after all that, navigare back to home page using the b.getHomePanel method
+			String email = frame.getOrderPanel().getEmail();
+			String item = frame.getOrderPanel().getItem();	
+			String quantity = frame.getOrderPanel().getQuantity();
+			String cvv = frame.getOrderPanel().getCVV();
+			String card = frame.getOrderPanel().getCard();
+			String type = null;
+			if(frame.getOrderPanel().getCheckboxSelection()==1)
+			{
+				type = "Visa";
+			}
+			else if(frame.getOrderPanel().getCheckboxSelection()==2)
+			{
+				type = "Mastercard";
+			}
+			else if(frame.getOrderPanel().getCheckboxSelection()==3)
+			{
+				type = "American Express";
+			}
+			
+			int i = Integer.parseInt(item);
+			int q = Integer.parseInt(quantity);
+			int cv = Integer.parseInt(cvv);
+			long c = Long.parseLong(card);
+			
+			ProcessInventoryController controller = new ProcessInventoryController();
+
+			if(a.getSource() == frame.getPaymentPanel().getConfirm()) {
+				controller.placeOrder(type, i, q, cv, c);
+				JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
+						"Message", JOptionPane.INFORMATION_MESSAGE);
+				frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
+			}
 		}
 		
 		/**
@@ -265,10 +296,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		{
 			//exit program
 			System.exit(1);
-		}
-	
-		
-	
+		}	
 	
 	}	
 	
@@ -276,10 +304,11 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	{
 		email = s;
 	}
-	
+
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
-
+		// TODO Auto-generated method stub
+		
 	}
 }
 

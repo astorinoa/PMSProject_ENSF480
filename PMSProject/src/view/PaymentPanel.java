@@ -63,4 +63,12 @@ public class PaymentPanel extends JPanel {
 	public JButton getBack() {
 		return back;
 	}
+	
+	public JButton getConfirm() {
+		return confirmPay;
+	}
+	
+	public void setPrice (int p) {
+		total.setText(String.valueOf(p));
+	}
 }
