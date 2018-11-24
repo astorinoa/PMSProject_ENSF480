@@ -13,14 +13,16 @@ public class ProcessInventoryController extends Driver {
 	{
 		String sql = "INSERT INTO `"+orderTable+ "` (`document_id`, `quantity`, `payment_type`, `card_number`, `payment_cvv`) VALUES ( '"
 				+ item+ "', '" + quantity +"', '"+ type + "', '"+ card +"', '"+ cvv +"' )";
-
+		
 		try{
 			stmt = conn.createStatement();
 			stmt.executeUpdate(sql);
+			return true;
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
+			return false;
 		}
 	}
 }

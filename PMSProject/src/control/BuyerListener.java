@@ -158,7 +158,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			if(!email.equals("") && !item.equals("") && !quantity.equals("") && !cvv.equals("") && !card.equals(""))
 			{
 				ProcessInventoryController controller = new ProcessInventoryController();
-				controller.order(type, i, q, cv, c);
+				controller.makeOrder(type, i, q, cv, c);
 			}
 			/**
 			 *  TODO: Switch to home panel depending on which type of buyer
