@@ -14,4 +14,5 @@ public interface BuyerStrategy {
 	abstract String viewPromotions();//returns different strings based on strategy
 	abstract void changeSubscriptionStatus();
 	abstract int getNumber();
+	abstract String getHomePanel();
 }

@@ -22,8 +22,8 @@ public class Buyer {
 		strategy = s;
 	}
 	
-	public BuyerStrategy getStrategy() {
-		return strategy;
+	public void setStrategy(BuyerStrategy bs) {
+		strategy = bs;
 	}
 	
 	
@@ -51,6 +51,11 @@ public class Buyer {
 	public int getStrategyNumber()
 	{
 		return strategy.getNumber();
+	}
+	
+	public String getHomePanel()
+	{
+		return strategy.getHomePanel();
 	}
 
 }

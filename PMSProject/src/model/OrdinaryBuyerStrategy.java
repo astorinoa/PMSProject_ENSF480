@@ -1,5 +1,8 @@
 package model;
 
+import view.OrdinaryHomePanel;
+import view.RegisteredHomePanel;
+
 /**
  * creates an object of type OrdinaryBuyer which is a strategy for BuyerStrategy. 
  * Ordinary buyers cannot see promotions and will be told to register in 
@@ -26,5 +29,10 @@ public class OrdinaryBuyerStrategy implements BuyerStrategy {
 	public int getNumber()
 	{
 		return 0;
+	}
+	
+	public String getHomePanel()
+	{
+		return "Ordinary Home";
 	}
 }

@@ -28,6 +28,11 @@ public class RegisteredBuyerStrategy implements BuyerStrategy {
 	{
 		return 1;
 	}
+	
+	public String getHomePanel()
+	{
+		return "Registered Home";
+	}
 }
 
 

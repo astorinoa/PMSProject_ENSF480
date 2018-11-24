@@ -107,14 +107,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getSearchPanel().getBackButton()) 
 		{
-			if(b.getStrategyNumber() == 0)
-			{
-				//show ordinary home
-			}
-			if(b.getStrategyNumber() == 1)
-			{
-				//show registered home
-			}
+			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
 		}
 		
 		/**
