@@ -182,10 +182,8 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		/**
 		 * If make payment button pressed on payment panel
 		 */
-		else if(a.getSource() == frame.getPaymentPanel().getBack()) {
-			//move reply done thing to here
-			//move make order where actually added to databses here
-			//after all that, navigare back to home page using the b.getHomePanel method
+		else if(a.getSource() == frame.getPaymentPanel().getConfirm()) {
+			
 			String email = frame.getOrderPanel().getEmail();
 			String item = frame.getOrderPanel().getItem();	
 			String quantity = frame.getOrderPanel().getQuantity();
@@ -212,12 +210,10 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			
 			ProcessInventoryController controller = new ProcessInventoryController();
 
-			if(a.getSource() == frame.getPaymentPanel().getConfirm()) {
-				controller.placeOrder(type, i, q, cv, c);
-				JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
-						"Message", JOptionPane.INFORMATION_MESSAGE);
-				frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
-			}
+			controller.placeOrder(type, i, q, cv, c);
+			JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
+					"Message", JOptionPane.INFORMATION_MESSAGE);
+			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
 		}
 		
 		/**
