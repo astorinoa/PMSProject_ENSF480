@@ -191,6 +191,11 @@ public class PlaceOrderPanel extends JPanel {
 		return cvv.getText();
 	}
 	
+	public JButton getBack()
+	{
+		return back;
+	}
+	
 	/**
 	 * Returns different int for each checkbox selected, 1 for visa, 2 for mc, 3 for am, 0 for error
 	 * @return an int indicating which checkbox is selected

@@ -82,4 +82,9 @@ public class PromoPanel extends JPanel {
 		this.add(middle, BorderLayout.CENTER);
 		this.add(bottom, BorderLayout.SOUTH);
 	}
+	
+	public JButton getBack()
+	{
+		 return back;
+	}
 }

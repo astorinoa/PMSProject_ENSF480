@@ -110,10 +110,10 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
 		}
 		
+		
 		/**
 		 * Make Order
 		 */
-		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getRegHomePanel().getPlaceOrder())
 		{
 			//show the add remove frame
@@ -165,10 +165,15 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 							"Message", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
-			/**
-			 *  TODO: Switch to home panel depending on which type of buyer
-			 */
+			//return to home panel
+			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
 		}
+		
+		else if(a.getSource() == frame.getOrderPanel().getBack())
+		{
+			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
+		}
+		
 		/**
 		 * If promotions
 		 */
@@ -187,6 +192,10 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			JOptionPane.showMessageDialog(null, string, 
 					"Error Message", JOptionPane.ERROR_MESSAGE);
 		}
+		else if(a.getSource() == frame.getPromoPanel().getBack())
+		{
+			frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
+		}
 		
 		/**
 		 * If registration
@@ -195,6 +204,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		else if(a.getSource() == frame.getRegHomePanel().getUnsubscribe())
 		{
 			controller.deleteRegUser(email); 
+			b.setStrategy(new OrdinaryBuyerStrategy());
 			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
 		}
 		//if register button on reg panel pressed 
@@ -210,6 +220,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			if (!frame.getRegPanel().getEmail().getText().equals("") && !pass.equals("")) {				
 				RegisteredBuyer reg = controller.createRegUser(frame.getRegPanel().getEmail().getText(), pass);
 				new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
+				b.setStrategy(new RegisteredBuyerStrategy());
 				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
 			}
 		}
