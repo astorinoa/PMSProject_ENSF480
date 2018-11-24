@@ -224,48 +224,25 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
 			}
 		}
-	
+		if(a.getSource() == frame.getRegPanel().getBack())
+		{
+			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
+		}
 		
-		
-	/**
-		//if logout button on buyer home panel pressed
+		/**
+		 * If logout
+		 */
 		else if(a.getSource() == frame.getRegHomePanel().getLogout()) 
 		{
 			//exit program
 			System.exit(1);
 		}
-		
-	
-		//if remove button on operator home panel pressed is remove document
-		else if(a.getSource() == frame.getOrdHomePanel().getRegister())
-		{
-			//delete account and go to ordinary home page
-			
-			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
-		}
-			else if(a.getSource() == frame.getOrdHomePanel().getRegister())
-		{
-			System.out.println("Trying to register");
-			frame.getCardLayout().show(frame.getContentPane(), "Registration");
-		}
-		//if logout button on buyer home panel pressed
 		else if(a.getSource() == frame.getOrdHomePanel().getLogout()) 
 		{
 			//exit program
 			System.exit(1);
 		}
-		
-		//if back button on reg panel pressed 
-		else if(a.getSource() == frame.getRegPanel().getBack())
-		{
-			//show the home panel
-			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");	
-		}
-		
-		
 	
-		
-	*/	
 		
 	
 	

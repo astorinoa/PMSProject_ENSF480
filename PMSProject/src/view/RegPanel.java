@@ -146,4 +146,6 @@ public class RegPanel extends JPanel{
 	public JPasswordField getPasswordField() {
 		return passwordField;
 	}
+	
+	
 }
