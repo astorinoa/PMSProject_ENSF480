@@ -158,7 +158,19 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			if(!email.equals("") && !item.equals("") && !quantity.equals("") && !cvv.equals("") && !card.equals(""))
 			{
 				ProcessInventoryController controller = new ProcessInventoryController();
-				controller.makeOrder(type, i, q, cv, c);
+				String reply = controller.makeOrder(type, i, q, cv, c);
+				if (reply.equals("not valid id")) {
+					JOptionPane.showMessageDialog(null, "Error: The document ID entered does not exist, please try again.", 
+							"Error Message", JOptionPane.ERROR_MESSAGE);
+				}
+				else if (reply.equals("not enough quantity")) {
+					JOptionPane.showMessageDialog(null, "Error: The quantity requested for the document selected is not avaliable, please try again.", 
+							"Error Message", JOptionPane.ERROR_MESSAGE);
+				}
+				else if (reply.equals("done")) {
+					JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
+							"Message", JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 			/**
 			 *  TODO: Switch to home panel depending on which type of buyer
