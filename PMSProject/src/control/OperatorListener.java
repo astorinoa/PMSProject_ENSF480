@@ -119,20 +119,30 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 					Document doomed = d.getDocuments().get(frame.getRemoveDocPanel().getDocuments().getSelectedIndex());
 					d.deleteDocument(doomed);
 					
-					frame.getRemoveDocPanel().getModel().removeAllElements();
-					
+					//remove deleted document from remove doc panel
+					frame.getRemoveDocPanel().getModel().removeAllElements();	
 					for(int i = 0; i < d.getDocuments().size(); i++)
 					{
 						frame.getRemoveDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
 					}
+					
+					//remove deleted document from update doc panel
+					frame.getUpdateDocPanel().getModel().removeAllElements();
+					for(int i = 0; i < d.getDocuments().size(); i++)
+					{
+						frame.getUpdateDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
+					}
 				}
 			}
+			
 			// add document from the approval queue
 			if (e.getSource() == frame.getAddDocPanel().getDocuments()) {
 				if(frame.getAddDocPanel().getDocuments().getSelectedIndex() != -1)
 				{
 					ApprovalDocument add = d.getApprovalDocuments().get(frame.getAddDocPanel().getDocuments().getSelectedIndex());
+					//add to inventory
 					d.addDocument(add);
+					//delete from approval queue
 					d.deleteDocument(add);
 					
 					frame.getAddDocPanel().getModel().removeAllElements();
@@ -141,10 +151,18 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 						frame.getAddDocPanel().getModel().addElement(d.getApprovalDocuments().get(i).toString());
 					}
 					
+					//fill newly approved documents into remove document panel
 					frame.getRemoveDocPanel().getModel().removeAllElements();
 					for(int i = 0; i < d.getDocuments().size(); i++)
 					{
 						frame.getRemoveDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
+					}
+					
+					//fill newly approved documents into update document panel
+					frame.getUpdateDocPanel().getModel().removeAllElements();
+					for(int i = 0; i < d.getDocuments().size(); i++)
+					{
+						frame.getUpdateDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
 					}
 				}
 			}
