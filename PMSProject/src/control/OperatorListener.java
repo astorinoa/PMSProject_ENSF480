@@ -104,6 +104,11 @@ public class OperatorListener implements ActionListener, ListSelectionListener{
 			{
 				frame.getUpdateDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
 			}
+			frame.getRemoveDocPanel().getModel().removeAllElements();
+			for(int i = 0; i < d.getDocuments().size(); i++)
+			{
+				frame.getRemoveDocPanel().getModel().addElement(d.getDocuments().get(i).toString());
+			}
 			
 		}
 	}	

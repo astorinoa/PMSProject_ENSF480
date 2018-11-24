@@ -12,7 +12,7 @@ public class ProcessInventoryController extends Driver {
 	}
 	
 	//Adds order to the database
-	public String makeOrder(String type, int item, int quantity, int cvv, int card)
+	public String makeOrder(String type, int item, int quantity, int cvv, long card)
 	{
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + item ;
 		ResultSet document;

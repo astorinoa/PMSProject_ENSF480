@@ -86,7 +86,7 @@ public class OrdinaryHomePanel extends JPanel{
 		logout.setForeground(new Color(25, 25, 112));
 		logout.setFont(new Font("PingFang TC", Font.PLAIN, 15));
 		logout.setAlignmentX(Component.CENTER_ALIGNMENT);
-		logout.setText("Logout");
+		logout.setText("Exit");
 		logout.addActionListener(listener);
 		
 		bottom.add(logout);

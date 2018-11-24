@@ -59,4 +59,8 @@ public class PaymentPanel extends JPanel {
 		this.add(one, BorderLayout.CENTER);
 		this.add(forButton, BorderLayout.SOUTH);
 	}
+	
+	public JButton getBack() {
+		return back;
+	}
 }

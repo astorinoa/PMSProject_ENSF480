@@ -118,4 +118,8 @@ public class BuyerAccountForm extends JFrame {
 		email = s;
 		listener.setEmail(email);
 	}
+
+	public PaymentPanel getPaymentPanel() {
+		return payPanel;
+	}
 }

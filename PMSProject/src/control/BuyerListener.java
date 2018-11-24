@@ -112,7 +112,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		
 		
 		/**
-		 * Make Order
+		 * If place order button pressed on home panel
 		 */
 		else if(a.getSource() == frame.getRegHomePanel().getPlaceOrder())
 		{
@@ -124,17 +124,16 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			//show the add remove frame
 			frame.getCardLayout().show(frame.getContentPane(), "Order");
 		}
+		/**
+		 * If make payment button pressed on order panel
+		 */
 		else if(a.getSource() == frame.getOrderPanel().getMakePayment())
 		{
 			String email = frame.getOrderPanel().getEmail();
-			String item = frame.getOrderPanel().getItem();
-			int i = Integer.parseInt(item);
+			String item = frame.getOrderPanel().getItem();	
 			String quantity = frame.getOrderPanel().getQuantity();
-			int q = Integer.parseInt(quantity);
 			String cvv = frame.getOrderPanel().getCVV();
-			int cv = Integer.parseInt(cvv);
 			String card = frame.getOrderPanel().getCard();
-			int c = Integer.parseInt(card);
 			String type = null;
 			if(frame.getOrderPanel().getCheckboxSelection()==1)
 			{
@@ -150,7 +149,13 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			}
 			if(!email.equals("") && !item.equals("") && !quantity.equals("") && !cvv.equals("") && !card.equals(""))
 			{
+				//these have to be in here or else clicking pay with empty fields causes exceptions on the parse ints
+				int i = Integer.parseInt(item);
+				int q = Integer.parseInt(quantity);
+				int cv = Integer.parseInt(cvv);
+				long c = Long.parseLong(card);
 				ProcessInventoryController controller = new ProcessInventoryController();
+				//make order should not be made until the final make payment button is clikced on payment panel
 				String reply = controller.makeOrder(type, i, q, cv, c);
 				if (reply.equals("not valid id")) {
 					JOptionPane.showMessageDialog(null, "Error: The document ID entered does not exist, please try again.", 
@@ -160,22 +165,40 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 					JOptionPane.showMessageDialog(null, "Error: The quantity requested for the document selected is not avaliable, please try again.", 
 							"Error Message", JOptionPane.ERROR_MESSAGE);
 				}
-				else if (reply.equals("done")) {
-					JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
-							"Message", JOptionPane.INFORMATION_MESSAGE);
-				}
+				//this should be moved to after the make paymnt button is clicked on payment panel
+//				else if (reply.equals("done")) {
+//					JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
+//							"Message", JOptionPane.INFORMATION_MESSAGE);
+//				}
+				//proceed to payment panel
+				frame.getCardLayout().show(frame.getContentPane(), "Payment");
 			}
-			//return to home panel
-			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
+		}
+		/**
+		 * If back button pressed on payment panel
+		 */
+		else if(a.getSource() == frame.getPaymentPanel().getBack()) {
+			frame.getCardLayout().show(frame.getContentPane(), "Order");
+		}
+		/**
+		 * If make payment button pressed on payment panel
+		 */
+		else if(a.getSource() == frame.getPaymentPanel().getBack()) {
+			//move reply done thing to here
+			//move make order where actually added to databses here
+			//after all that, navigare back to home page using the b.getHomePanel method
 		}
 		
+		/**
+		 * If back button pressed on order panel
+		 */
 		else if(a.getSource() == frame.getOrderPanel().getBack())
 		{
 			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
 		}
 		
 		/**
-		 * If promotions
+		 * If promotions pressed on home panel
 		 */
 		else if(a.getSource() == frame.getRegHomePanel().getViewPromotions())
 		{
@@ -198,21 +221,22 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		}
 		
 		/**
-		 * If registration
+		 * If registration/unsubscribe pressed on home panel
 		 */
-		//if remove button on operator home panel pressed is remove document
+		//if unsubscribe button on reg home panel pressed 
 		else if(a.getSource() == frame.getRegHomePanel().getUnsubscribe())
 		{
 			controller.deleteRegUser(email); 
 			b.setStrategy(new OrdinaryBuyerStrategy());
 			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
 		}
-		//if register button on reg panel pressed 
+		//if register button on ord home panel pressed 
 		else if(a.getSource() == frame.getOrdHomePanel().getRegister())
 		{	
 			frame.getCardLayout().show(frame.getContentPane(), "Registration");
 			
 		}
+		//if register button on reg panel pressed 
 		if(a.getSource() == frame.getRegPanel().getRegister())
 		{
 			char [] tmp  = frame.getRegPanel().getPasswordField().getPassword();
