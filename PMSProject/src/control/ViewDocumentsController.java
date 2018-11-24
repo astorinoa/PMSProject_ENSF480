@@ -7,11 +7,18 @@ import java.util.ArrayList;
 import model.*;
 
 public class ViewDocumentsController extends Driver{
+	/**
+	 * have access to the database
+	 */
 	public ViewDocumentsController(){
 		super();
 	}
 	
-
+	/**
+	 * get all the documents by title
+	 * @param title of document
+	 * @return arrayList of documents with similar title
+	 */
 	public ArrayList<Document> getDocumentsByTitle(String title){
 		String sql = "SELECT * FROM " + docTable + " WHERE TITLE LIKE '%" + title + "%';";
 		ResultSet document;
@@ -35,6 +42,11 @@ public class ViewDocumentsController extends Driver{
 		return temp;
 	}
 	
+	/**
+	 * get all the documents by author
+	 * @param author of document
+	 * @return arrayList of documents with similar author
+	 */
 	public ArrayList<Document> getDocumentsByAuthor(String author){
 		String sql = "SELECT * FROM " + docTable + " WHERE AUTHOR LIKE '%" + author + "%';";
 		ResultSet document;
@@ -58,6 +70,11 @@ public class ViewDocumentsController extends Driver{
 		return temp;
 	}
 	
+	/**
+	 * get all the documents by type
+	 * @param type of document
+	 * @return arrayList of documents with similar type
+	 */
 	public ArrayList<Document> getDocumentsByType(String type){
 		String sql = "SELECT * FROM " + docTable + " WHERE TYPE LIKE '%" + type + "%';";
 		ResultSet document;

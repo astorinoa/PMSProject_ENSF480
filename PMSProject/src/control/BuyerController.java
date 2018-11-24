@@ -8,11 +8,19 @@ import model.RegisteredBuyer;
 
 public class BuyerController extends Driver{
 	
+	/**
+	 * have access to the database
+	 */
 	public BuyerController(){
 		super();
 	}
 	
-	
+	/**
+	 * creates a user account, but checks to make sure it doesn't already exist
+	 * @param email of the user
+	 * @param password of the user
+	 * @return registeredBuyer object
+	 */
 	public RegisteredBuyer createRegUser(String email, String password)
 	{	
 		String sql = "SELECT * FROM " + regTable + " WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password + "'";
@@ -64,7 +72,10 @@ public class BuyerController extends Driver{
 		return null;
 	}
 	
-	
+	/**
+	 * delete the registered user
+	 * @param email of the user
+	 */
 	public void deleteRegUser (String email){
 		System.out.println("In controller: " + email);
 		String sql = "DELETE FROM " + regTable + " WHERE EMAIL= '" + email + "'";

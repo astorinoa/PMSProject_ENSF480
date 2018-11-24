@@ -8,12 +8,17 @@ import model.*;
 
 
 public class PromotionsController extends Driver{
-	
+	/**
+	 * have access to the database
+	 */
 	public PromotionsController(){
 		super();
 	}
 	
-	
+	/**
+	 * get all the promotions from database
+	 * @return arrayList of all the promos
+	 */
 	public ArrayList<Promotion> getPromotions(){
 		String sql = "SELECT * FROM " + promoTable;
 		ResultSet promo;

@@ -40,6 +40,9 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		controller = new BuyerController();
 	}
 	
+	/**
+	 * searches documents based on the type of search selected
+	 */
 	public void Search(int type)
 	{
 		System.out.println(frame.getSearchPanel().getSearchText());
@@ -275,6 +278,9 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 				frame.getCardLayout().show(frame.getContentPane(), "Registered Home");
 			}
 		}
+		/**
+		 * if back button pressed on register panel
+		 */
 		if(a.getSource() == frame.getRegPanel().getBack())
 		{
 			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
@@ -288,6 +294,9 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			//exit program
 			System.exit(1);
 		}
+		/**
+		 * If logout
+		 */
 		else if(a.getSource() == frame.getOrdHomePanel().getLogout()) 
 		{
 			//exit program

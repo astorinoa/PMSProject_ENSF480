@@ -6,11 +6,19 @@ import java.sql.SQLException;
 import model.*;
 
 public class ValidateLoginController extends Driver{
-	
+	/**
+	 * have access to the database
+	 */
 	public ValidateLoginController(){
 		super();
 	}
 	
+	/**
+	 * check type of user
+	 * @param email of user
+	 * @param password of user
+	 * @return type of user
+	 */
 	public String readCheck(String email, String password){
 		RegisteredBuyer buyer = searchRegUser(email, password);
 		if (buyer != null) {
@@ -23,6 +31,12 @@ public class ValidateLoginController extends Driver{
 		return "NoUser";
 	}
 	
+	/**
+	 * search for registered user
+	 * @param email of user
+	 * @param password of user
+	 * @return registered user type
+	 */
 	public RegisteredBuyer searchRegUser(String email, String password)
 	{
 		String sql = "SELECT * FROM " + regTable + " WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password + "'";
@@ -41,7 +55,12 @@ public class ValidateLoginController extends Driver{
 		return null;
 	}
 	
-	
+	/**
+	 * search for operator user
+	 * @param email of user
+	 * @param password of user
+	 * @return operator user type
+	 */
 	public Operator searchOperator(String email, String password)
 	{
 		String sql = "SELECT * FROM " + operatorTable + " WHERE EMAIL = '" + email + "' AND PASSWORD = '" + password + "'";

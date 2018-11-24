@@ -6,12 +6,22 @@ import java.sql.SQLException;
 import model.Document;
 
 public class ProcessInventoryController extends Driver {
+	/**
+	 * have access to the database
+	 */
 	public ProcessInventoryController()
 	{
 		super();
 	}
 	
-	//Adds order to the database
+	/**
+	 * make sure the order can be made
+	 * @param type of payment
+	 * @param item document id
+	 * @param quantity documents want to order
+	 * @param cvv security payment info
+	 * @param card card number
+	 */
 	public String checkOrder(String type, int item, int quantity, int cvv, long card)
 	{
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + item ;
@@ -44,6 +54,12 @@ public class ProcessInventoryController extends Driver {
 		return "done";
 	}
 	
+	/**
+	 * get price of item based on quantity 
+	 * @param item document id
+	 * @param quantity number the user wants to buy
+	 * @return total price
+	 */
 	public int getPrice (int item, int quantity)
 	{
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + item ;
@@ -70,7 +86,14 @@ public class ProcessInventoryController extends Driver {
 	}
 	
 	
-	
+	/**
+	 * places the order and updates database
+	 * @param type of payment
+	 * @param item document id
+	 * @param quantity documents want to order
+	 * @param cvv security payment info
+	 * @param card card number
+	 */
 	public void placeOrder(String type, int item, int quantity, int cvv, long card)
 	{
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + item ;

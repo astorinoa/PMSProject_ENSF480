@@ -7,12 +7,18 @@ import java.util.ArrayList;
 import model.*;
 
 public class EditDocumentController extends Driver{
-
+	
+	/**
+	 * have access to the database
+	 */
 	public EditDocumentController(){
 		super();
 	}
 	
-	
+	/**
+	 * update document information
+	 * @param d the document want to update to
+	 */
 	public void updateDocument (Document d){
 		String sql = "UPDATE " + docTable + " SET AUTHOR = '" + d.getAuthor() + "', TITLE = '" + d.getTitle() +
 				"', PRICE = "+ d.getPrice()+", QUANTITY = "+ d.getQuantity() + " WHERE DOCUMENT_ID= " + d.getId();
@@ -27,7 +33,10 @@ public class EditDocumentController extends Driver{
 	}
 	
 
-	
+	/**
+	 * approve document from approval queue
+	 * @param d document to approve
+	 */
 	public void addDocument (ApprovalDocument d){
 		String sql = "INSERT INTO " + docTable +
 				" VALUES ( "+ d.getId() +", '" + 
@@ -47,6 +56,10 @@ public class EditDocumentController extends Driver{
 			
 	}
 	
+	/**
+	 * delete document from database
+	 * @param d document to delete
+	 */
 	public void deleteDocument (Document d){
 		String sql = "DELETE FROM " + docTable + " WHERE DOCUMENT_ID=" + d.getId();
 		try{
@@ -60,6 +73,10 @@ public class EditDocumentController extends Driver{
 		
 	}
 	
+	/**
+	 * delete document from database
+	 * @param d document to delete
+	 */
 	public void deleteDocument (ApprovalDocument d){
 		String sql = "DELETE FROM " + approveTable + " WHERE DOCUMENT_ID=" + d.getId();
 		try{
@@ -73,6 +90,10 @@ public class EditDocumentController extends Driver{
 		
 	}
 	
+	/**
+	 * get all the documents from database in the system
+	 * @return arrayList of documents
+	 */
 	public ArrayList<Document> getDocuments(){
 		String sql = "SELECT * FROM " + docTable;
 		ResultSet document;
@@ -97,8 +118,11 @@ public class EditDocumentController extends Driver{
 	}
 	
 	
-	
-	
+	/**
+	 * retrieve document by ID	
+	 * @param id the document id
+	 * @return document
+	 */
 	public Document getDocumentByID(int id){
 		String sql = "SELECT * FROM " + docTable + " WHERE DOCUMENT_ID =" + id ;
 		ResultSet document;
@@ -121,7 +145,10 @@ public class EditDocumentController extends Driver{
 		return null;
 	}
 	
-	
+	/**
+	 * get all the awaited apporval documents from database in the system
+	 * @return arrayList of documents
+	 */
 	public ArrayList<ApprovalDocument> getApprovalDocuments(){
 		String sql = "SELECT * FROM " + approveTable;
 		ResultSet document;
