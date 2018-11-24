@@ -40,8 +40,8 @@ public class BuyerAccountForm extends JFrame {
 	//the registered buyers email
 	private String email;
 	
-	public BuyerAccountForm() {
-		listener = new BuyerListener(this);
+	public BuyerAccountForm(int buyerType) {
+		listener = new BuyerListener(this, buyerType);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setPreferredSize( new Dimension(550,350));
 		cardLayout = new CardLayout();

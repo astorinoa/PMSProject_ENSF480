@@ -11,6 +11,7 @@ package model;
  *
  */
 public interface BuyerStrategy {	
-	abstract void viewPromotions();
+	abstract String viewPromotions();//returns different strings based on strategy
 	abstract void changeSubscriptionStatus();
+	abstract int getNumber();
 }

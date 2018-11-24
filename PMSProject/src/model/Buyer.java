@@ -10,26 +10,9 @@ package model;
  * @author Rae McPhail, Alexa Astorino, Shreya Patel
  *
  */
-abstract class Buyer {
+public class Buyer {
 	
 	protected BuyerStrategy strategy;
-	protected String email;
-	protected String password;
-	protected int id;
-	
-	/**
-	 * Constructor for the Buyer if they logged in as a RegisteredBuyer, 
-	 * you know they are a registered buyer because they have an email and password
-	 * @param e is the operator's email address
-	 * @param p is the operator's password
-	 * @param id is the operator's id in the database
-	 */
-	public Buyer(int id, String e, String p, BuyerStrategy s) {
-		this.id = id;
-		email = e;
-		password = p;
-		strategy = s;
-	}
 	
 	/**
 	 * Constructor for the Buyer if they are browser as an OrdinaryBuyer, 
@@ -39,15 +22,19 @@ abstract class Buyer {
 		strategy = s;
 	}
 	
+	public BuyerStrategy getStrategy() {
+		return strategy;
+	}
 	
 	
 	/**
 	 * allows buyer to view promotions, 
 	 * different method is called depending on which strategy is being used
+	 * @return 
 	 */
-	public void viewPromtions ()
+	public String viewPromtions ()
 	{
-		strategy.viewPromotions();
+		return strategy.viewPromotions();
 	}
 	
 	/**
@@ -60,13 +47,10 @@ abstract class Buyer {
 		strategy.changeSubscriptionStatus();
 	}
 	
-	public String getEmail() {
-		return email;
+	
+	public int getStrategyNumber()
+	{
+		return strategy.getNumber();
 	}
-	public String getPassword() {
-		return password;
-	}
-	public int getID() {
-		return id;
-	}
+
 }

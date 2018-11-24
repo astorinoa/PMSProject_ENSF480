@@ -11,15 +11,20 @@ package model;
 public class OrdinaryBuyerStrategy implements BuyerStrategy {
 	
 
-	public void viewPromotions()
+	public String viewPromotions()
 	{
-		//potentially call method in listener
-		//shows "Become a registered buyer to receive promotions"
+		return "Please register to view promotions!";
+		
 	}
 	
 
 	public void changeSubscriptionStatus()
 	{
 		//shows "Not a registered buyer"
+	}
+	
+	public int getNumber()
+	{
+		return 0;
 	}
 }

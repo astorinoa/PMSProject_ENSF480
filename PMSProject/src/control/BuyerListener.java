@@ -3,10 +3,14 @@ package control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import model.Buyer;
+import model.OrdinaryBuyerStrategy;
 import model.RegisteredBuyer;
+import model.RegisteredBuyerStrategy;
 import view.BuyerAccountForm;
 
 /**
@@ -19,12 +23,19 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	private BuyerAccountForm frame;
 	private BuyerController controller;
 	private String email;
+	private Buyer b;
 	
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
 	 */
-	public BuyerListener(BuyerAccountForm jf) {
+	public BuyerListener(BuyerAccountForm jf, int buyerType) {
+		if (buyerType == 0) {
+			b = new Buyer(new OrdinaryBuyerStrategy());
+		}
+		else if (buyerType == 1) {
+			b = new Buyer(new RegisteredBuyerStrategy());
+		}
 		frame = jf;
 		controller = new BuyerController();
 	}
@@ -96,7 +107,14 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getSearchPanel().getBackButton()) 
 		{
-		
+			if(b.getStrategyNumber() == 0)
+			{
+				//show ordinary home
+			}
+			if(b.getStrategyNumber() == 1)
+			{
+				//show registered home
+			}
 		}
 		
 		/**
@@ -149,17 +167,20 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		/**
 		 * If promotions
 		 */
-		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getRegHomePanel().getViewPromotions())
 		{
 			//show the add remove frame
-			frame.getCardLayout().show(frame.getContentPane(), "Promotion");
+			String string = b.viewPromtions();
+			System.out.println(string);
+			frame.getCardLayout().show(frame.getContentPane(), string);
 		}
 		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getOrdHomePanel().getViewPromotions())
 		{
-			//show the add remove frame
-			frame.getCardLayout().show(frame.getContentPane(), "Promotion");
+			//show the please register pop up
+			String string = b.viewPromtions();
+			JOptionPane.showMessageDialog(null, string, 
+					"Error Message", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		/**
@@ -168,7 +189,6 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		//if remove button on operator home panel pressed is remove document
 		else if(a.getSource() == frame.getRegHomePanel().getUnsubscribe())
 		{
-			System.out.println(email);
 			controller.deleteRegUser(email); 
 			frame.getCardLayout().show(frame.getContentPane(), "Ordinary Home");
 		}

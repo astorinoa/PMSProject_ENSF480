@@ -7,9 +7,9 @@ public class RegisteredBuyerStrategy implements BuyerStrategy {
 	 * allows buyer to view promotions, 
 	 * only registered buyers are able to see promotions
 	 */
-	public void viewPromotions()
+	public String viewPromotions()
 	{
-		//SHOW A JLIST
+		return "Promotion";
 	}
 	
 	/**
@@ -22,6 +22,11 @@ public class RegisteredBuyerStrategy implements BuyerStrategy {
 		//b.setStrategyPattern(new OrdinaryBuyer());
 		//Makes buyer a registered buyer
 		//TODO update database
+	}
+	
+	public int getNumber()
+	{
+		return 1;
 	}
 }
 

@@ -20,6 +20,7 @@ public class LoginListener implements ActionListener{
 	private LoginForm frame;
 	private ValidateLoginController validate;
 
+
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
@@ -40,7 +41,7 @@ public class LoginListener implements ActionListener{
 		}
 		if (a.getSource() == frame.getGuest()) {	
 			frame.setVisible(false);
-			BuyerAccountForm b = new BuyerAccountForm();
+			BuyerAccountForm b = new BuyerAccountForm(0);
 			new OrdinaryBuyer();
 			frame.setVisible(false);
 			b.getCardLayout().show(b.getContentPane(), "Ordinary Home");	
@@ -59,7 +60,7 @@ public class LoginListener implements ActionListener{
 				frame.setVisible(false);
 				RegisteredBuyer reg = validate.searchRegUser(frame.getuserEmail().getText(), pass);
 				RegisteredBuyer regBuyer = new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
-				BuyerAccountForm r = new BuyerAccountForm();
+				BuyerAccountForm r = new BuyerAccountForm(1);
 				r.setEmail(frame.getuserEmail().getText());
 			}
 			else if(type.equals("Operator"))
