@@ -28,4 +28,8 @@ public class Promotion {
 	public String getContent() {
 		return content;
 	}
+	
+	public String toString() {
+		return (id + " - starts:" + sdate + " - until: "+ edate + " - content: " + content );
+	}
 }

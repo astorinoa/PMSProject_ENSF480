@@ -61,6 +61,8 @@ public class PromoPanel extends JPanel {
 			promos += (p.getPromotions().get(i).toString()+ "\n");
 		}
 		
+		promotions.setText(promos);
+		
 		
 		JPanel bottom = new JPanel();
 		bottom.setBackground(new Color(176, 196, 222));
