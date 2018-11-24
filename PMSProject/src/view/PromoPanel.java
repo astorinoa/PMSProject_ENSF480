@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
+import control.EditDocumentController;
 
 public class PromoPanel extends JPanel {
 	private JTextArea promotions;
@@ -55,7 +56,11 @@ public class PromoPanel extends JPanel {
 		middle.add(scroll, BorderLayout.CENTER);
 
 ////////////////////////////////////
-		
+//		EditDocumentController d = new EditDocumentController();
+//		for(int i = 0; i < d.getDocuments().size(); i++)
+//		{
+//			model.addElement(d.getDocuments().get(i).toString());
+//		}
 		
 		
 		
