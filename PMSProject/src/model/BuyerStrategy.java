@@ -10,9 +10,19 @@ package model;
  * @author Rae McPhail, Alexa Astorino, Shreya Patel
  *
  */
-public interface BuyerStrategy {	
-	abstract String viewPromotions();//returns different strings based on strategy
-	abstract void changeSubscriptionStatus();
+public interface BuyerStrategy {
+	/** 
+	 * @return string of the message that the buyer views
+	 */
+	abstract String viewPromotions();
+	
+	/**
+	 * @return 1 if strategy is registered, 0 if strategy is ordinary
+	 */
 	abstract int getNumber();
+	
+	/**
+	 * @return string for the home panel of the buyer based on which strategy they are implementing
+	 */
 	abstract String getHomePanel();
 }
