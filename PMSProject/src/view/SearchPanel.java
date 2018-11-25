@@ -17,6 +17,11 @@ import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
 
+/**
+ * Creates a JPanel where ordinary and registered buyers can search for documents in the inventory by type
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class SearchPanel extends JPanel {
 	private JCheckBox title;
 	private JCheckBox author;
@@ -28,11 +33,8 @@ public class SearchPanel extends JPanel {
 	private ButtonGroup group;
 	
 	/**
-	 * Constructs and formats the GUI components
-	 * @param prof Object of type Prof that the courses are uploaded and edited by
-	 * @param listener allows for the GUI compounds to be listened to as actions are performed on them
-	 * @param objOut communicate over socket
-	 * @param objIn communicate over socket
+	 * Creates and sets java swing GUI components, adding listeners to JButtons 
+	 * @param listener of type BuyerListener for implementing functionality
 	 */
 	public SearchPanel(BuyerListener listener)
 	{

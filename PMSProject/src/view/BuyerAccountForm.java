@@ -10,6 +10,12 @@ import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
 
+/**
+ * Creates a JFrame for a generic buyer that implements card layout to switch between other JPanels for
+ * both ordinary and registered buyers
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class BuyerAccountForm extends JFrame {
 
 	private BuyerListener listener;
@@ -40,6 +46,9 @@ public class BuyerAccountForm extends JFrame {
 	//the registered buyers email
 	private String email;
 	
+	/**
+	 * Create the Buyer Account frame by setting java swing GUI components and creates multiple JPanels
+	 */
 	public BuyerAccountForm(int buyerType) {
 		listener = new BuyerListener(this, buyerType);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

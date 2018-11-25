@@ -18,11 +18,22 @@ import javax.swing.border.EmptyBorder;
 import control.EditDocumentController;
 import control.OperatorListener;
 
+/**
+ * Creates a JPanel where operators can see a JList of documents pending approval & approve them to
+ * be added to the document inventory
+ * Please note: due to partial implementation, approval queue consists of documents rather than author submissions
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class AddDocPanel extends JPanel {
 	private DefaultListModel<String> model;
 	private JList <String> approvalQueue;
 	private JButton back;
 
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons or JList features
+	 * @param listener of type OperatorListener for implementing functionality
+	 */
 	public AddDocPanel(OperatorListener listener) {
 		super();
 		

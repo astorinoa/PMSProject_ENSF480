@@ -14,6 +14,11 @@ import javax.swing.border.EmptyBorder;
 
 import control.OperatorListener;
 
+/**
+ * Creates a JPanel where operators can see information of a specific document and make changes to the information
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class DocInfoPanel extends JPanel{
 	private JTextArea title;
 	private JTextArea author;
@@ -22,6 +27,10 @@ public class DocInfoPanel extends JPanel{
 	private JButton update;
 	private JButton back;
 
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons
+	 * @param listener of type OperatorListener for implementing functionality
+	 */
 	public DocInfoPanel(OperatorListener listener) {
 		super();
 		

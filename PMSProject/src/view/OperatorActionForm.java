@@ -7,8 +7,8 @@ import control.OperatorListener;
 import java.awt.*;
 
 /**
- * Creates a JPanel for an operator that switches between other JPanels
- * @author Rae McPhail, Alexa Astorino, Shreya Patel
+ * Creates a JFrame for an operator that implements card layout to switch between other JPanels
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
  *
  */
 public class OperatorActionForm extends JFrame {
@@ -32,6 +32,9 @@ public class OperatorActionForm extends JFrame {
 	// remove doc page
 	private RemoveDocPanel removeDocPanel;
 	
+	/**
+	 * Create the Operator Action frame by setting java swing GUI components and creates multiple JPanels
+	 */
 	public OperatorActionForm() {
 		listener = new OperatorListener(this);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

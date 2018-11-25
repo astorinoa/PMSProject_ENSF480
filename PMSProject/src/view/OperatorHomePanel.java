@@ -15,12 +15,21 @@ import javax.swing.border.EmptyBorder;
 
 import control.OperatorListener;
 
+/**
+ * Creates a JPanel where operators can select the option to add, remove or update documents
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class OperatorHomePanel extends JPanel{
 	private JButton logout;
 	private JButton add;
 	private JButton update;
 	private JButton remove;
 	
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons
+	 * @param listener of type OperatorListener for implementing functionality
+	 */
 	public OperatorHomePanel(OperatorListener listener) {
 		super();
 		

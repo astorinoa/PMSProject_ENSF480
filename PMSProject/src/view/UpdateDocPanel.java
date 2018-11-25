@@ -18,11 +18,20 @@ import javax.swing.border.EmptyBorder;
 import control.EditDocumentController;
 import control.OperatorListener;
 
+/**
+ * Creates a JPanel where operators can see a JList of documents in the inventory and can update their information
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class UpdateDocPanel extends JPanel{
 	private DefaultListModel<String> model;
 	private JList <String> documents;
 	private JButton back;
 	
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons or JList features
+	 * @param listener of type OperatorListener for implementing functionality
+	 */
 	public UpdateDocPanel(OperatorListener listener) {
 		super();
 		

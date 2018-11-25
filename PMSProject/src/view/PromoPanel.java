@@ -17,11 +17,20 @@ import javax.swing.border.EmptyBorder;
 import control.BuyerListener;
 import control.PromotionsController;
 
+/**
+ * Creates a JPanel where registered buyers can view a JTextArea of current promotions
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class PromoPanel extends JPanel {
 	private JTextArea promotions;
 	private JButton back;
 	BuyerListener listener;
 	
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons
+	 * @param listener of type BuyerListener for implementing functionality
+	 */
 	public PromoPanel(BuyerListener listener) {
 		super();
 		
