@@ -166,29 +166,29 @@ public class PlaceOrderPanel extends JPanel {
 		return pay;
 	}
 	
-	public String getEmail()
+	public JTextField getEmail()
 	{
-		return email.getText();
+		return email;
 	}
 	
-	public String getItem()
+	public JTextField getItem()
 	{
-		return item.getText();
+		return item;
 	}
 	
-	public String getQuantity()
+	public JTextField getQuantity()
 	{
-		return quantity.getText();
+		return quantity;
 	}
 	
-	public String getCard()
+	public JTextField getCard()
 	{
-		return card.getText();
+		return card;
 	}
 	
-	public String getCVV()
+	public JTextField getCVV()
 	{
-		return cvv.getText();
+		return cvv;
 	}
 	
 	public JButton getBack()

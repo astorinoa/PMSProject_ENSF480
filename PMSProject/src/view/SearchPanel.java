@@ -164,9 +164,9 @@ public class SearchPanel extends JPanel {
 	}
 	
 
-	public String getSearchText()
+	public JTextField getSearchText()
 	{
-		return searchVal.getText();
+		return searchVal;
 	}
 	
 	public JTextArea getList()
