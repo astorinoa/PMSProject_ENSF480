@@ -67,7 +67,7 @@ CREATE TABLE `document` (
 
 LOCK TABLES `document` WRITE;
 /*!40000 ALTER TABLE `document` DISABLE KEYS */;
-INSERT INTO `document` VALUES (1,'book','JK Rowling','Harry Potter',15,20),(2,'book','Veronica Roth','Divergent',14,15),(3,'book','Stephanie Meyer','Twilight',10,7),(4,'journal','Naturists','Nature',8,9),(5,'journal','Scientists','Science',9,6),(6,'magazine','Chicken','Chickadee',5,11),(7,'magazine','Bob','US Weekly',4,2),(8,'book','Suzanne Collins','Hunger Games',17,26);
+INSERT INTO `document` VALUES (1,'book','JK Rowling','Harry Potter',15,18),(2,'book','Veronica Roth','Divergent',14,15),(3,'book','Stephanie Meyer','Twilight',10,7),(4,'journal','Naturists','Nature',8,9),(5,'journal','Scientists','Science',9,6),(6,'magazine','Chicken','Chickadee',5,11),(8,'book','Suzanne Collins','Hunger Games',17,26);
 /*!40000 ALTER TABLE `document` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +111,7 @@ CREATE TABLE `order` (
   `card_number` bigint(20) NOT NULL,
   `payment_cvv` int(3) NOT NULL,
   PRIMARY KEY (`order_id`,`document_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `registered_buyer` (
   `email` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`buyer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,4 +184,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-23 16:06:35
+-- Dump completed on 2018-11-26 11:20:21
