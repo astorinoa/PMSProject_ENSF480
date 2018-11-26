@@ -57,6 +57,15 @@ public class LoginListener implements ActionListener{
 			String pass = new String (tmp);
 			String type = validate.readCheck(frame.getuserEmail().getText(), pass);
 			if(type.equals("RegisteredBuyer")) {
+				PromotionsController p = new PromotionsController();
+				if(p.getPromotions().size() > 3) {
+					//due to partial implementation, we assume our PMS starts
+					//with 3 promotions, and can demonstrate notifications by adding
+					//more notifications to the promotion table in the database
+					int newPromo = p.getPromotions().size() - 3;
+					JOptionPane.showMessageDialog(null, "You have " + newPromo + " new promotion(s)!", 
+							"Info Message", JOptionPane.INFORMATION_MESSAGE);
+				}
 				frame.setVisible(false);
 				RegisteredBuyer reg = validate.searchRegUser(frame.getuserEmail().getText(), pass);
 				RegisteredBuyer regBuyer = new RegisteredBuyer(reg.getID(), reg.getEmail(), reg.getPassword());
