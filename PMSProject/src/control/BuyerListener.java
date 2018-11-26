@@ -19,7 +19,7 @@ import view.BuyerAccountForm;
  * @author Rae McPhail, Alexa Astorino, Shreya Patel
  *
  */
-public class BuyerListener implements ActionListener, ListSelectionListener{
+public class BuyerListener implements ActionListener {
 	private BuyerAccountForm frame;
 	private BuyerController controller;
 	private String email;
@@ -28,6 +28,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	/**
 	 * Constructor for the listener
 	 * @param jf the frame that the listener connects to
+	 * @param int, 0 for ordinary buyer, 1 for registered buyer
 	 */
 	public BuyerListener(BuyerAccountForm jf, int buyerType) {
 		if (buyerType == 0) {
@@ -41,32 +42,31 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 	}
 	
 	/**
-	 * searches documents based on the type of search selected
+	 * Searches documents based on the type of search selected
 	 */
 	public void Search(int type)
 	{
-		System.out.println(frame.getSearchPanel().getSearchText());
 		ViewDocumentsController d = new ViewDocumentsController();
 		frame.getSearchPanel().getList().setText("");
 		if(type == 1)
 		{	
-			for(int i = 0; i < d.getDocumentsByTitle(frame.getSearchPanel().getSearchText()).size(); i++)
+			for(int i = 0; i < d.getDocumentsByTitle(frame.getSearchPanel().getSearchText().getText()).size(); i++)
 			{
-				frame.getSearchPanel().getList().append(d.getDocumentsByTitle(frame.getSearchPanel().getSearchText()).get(i).toString() + "\n");
+				frame.getSearchPanel().getList().append(d.getDocumentsByTitle(frame.getSearchPanel().getSearchText().getText()).get(i).toString() + "\n");
 			}
 		}
 		else if(type == 2)
 		{	
-			for(int i = 0; i < d.getDocumentsByAuthor(frame.getSearchPanel().getSearchText()).size(); i++)
+			for(int i = 0; i < d.getDocumentsByAuthor(frame.getSearchPanel().getSearchText().getText()).size(); i++)
 			{
-				frame.getSearchPanel().getList().append(d.getDocumentsByAuthor(frame.getSearchPanel().getSearchText()).get(i).toString() + "\n");
+				frame.getSearchPanel().getList().append(d.getDocumentsByAuthor(frame.getSearchPanel().getSearchText().getText()).get(i).toString() + "\n");
 			}
 		}
 		else if(type == 3)
 		{	
-			for(int i = 0; i < d.getDocumentsByType(frame.getSearchPanel().getSearchText()).size(); i++)
+			for(int i = 0; i < d.getDocumentsByType(frame.getSearchPanel().getSearchText().getText()).size(); i++)
 			{
-				frame.getSearchPanel().getList().append(d.getDocumentsByType(frame.getSearchPanel().getSearchText()).get(i).toString() + "\n");
+				frame.getSearchPanel().getList().append(d.getDocumentsByType(frame.getSearchPanel().getSearchText().getText()).get(i).toString() + "\n");
 			}
 		}
 	}
@@ -74,7 +74,7 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 
 
 	/**
-	 * performs an action in response to the event
+	 * Performs an action in response to the event
 	 */
 	@Override
 	public void actionPerformed(ActionEvent a) {
@@ -110,6 +110,8 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getSearchPanel().getBackButton()) 
 		{
+			frame.getSearchPanel().getList().setText("");
+			frame.getSearchPanel().getSearchText().setText("");
 			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
 		}
 		
@@ -132,11 +134,11 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getOrderPanel().getMakePayment())
 		{
-			String email = frame.getOrderPanel().getEmail();
-			String item = frame.getOrderPanel().getItem();	
-			String quantity = frame.getOrderPanel().getQuantity();
-			String cvv = frame.getOrderPanel().getCVV();
-			String card = frame.getOrderPanel().getCard();
+			String email = frame.getOrderPanel().getEmail().getText();
+			String item = frame.getOrderPanel().getItem().getText();	
+			String quantity = frame.getOrderPanel().getQuantity().getText();
+			String cvv = frame.getOrderPanel().getCVV().getText();
+			String card = frame.getOrderPanel().getCard().getText();
 			String type = null;
 			if(frame.getOrderPanel().getCheckboxSelection()==1)
 			{
@@ -152,13 +154,11 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			}
 			if(!email.equals("") && !item.equals("") && !quantity.equals("") && !cvv.equals("") && !card.equals(""))
 			{
-				//these have to be in here or else clicking pay with empty fields causes exceptions on the parse ints
 				int i = Integer.parseInt(item);
 				int q = Integer.parseInt(quantity);
 				int cv = Integer.parseInt(cvv);
 				long c = Long.parseLong(card);
 				ProcessInventoryController controller = new ProcessInventoryController();
-				//make order should not be made until the final make payment button is clikced on payment panel
 				String reply = controller.checkOrder(type, i, q, cv, c);
 				if (reply.equals("not valid id")) {
 					JOptionPane.showMessageDialog(null, "Error: The document ID entered does not exist, please try again.", 
@@ -187,11 +187,11 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getPaymentPanel().getConfirm()) {
 			
-			String email = frame.getOrderPanel().getEmail();
-			String item = frame.getOrderPanel().getItem();	
-			String quantity = frame.getOrderPanel().getQuantity();
-			String cvv = frame.getOrderPanel().getCVV();
-			String card = frame.getOrderPanel().getCard();
+			String email = frame.getOrderPanel().getEmail().getText();
+			String item = frame.getOrderPanel().getItem().getText();	
+			String quantity = frame.getOrderPanel().getQuantity().getText();
+			String cvv = frame.getOrderPanel().getCVV().getText();
+			String card = frame.getOrderPanel().getCard().getText();
 			String type = null;
 			if(frame.getOrderPanel().getCheckboxSelection()==1)
 			{
@@ -216,7 +216,13 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 			controller.placeOrder(type, i, q, cv, c);
 			JOptionPane.showMessageDialog(null, "Success, the order has been placed!", 
 					"Message", JOptionPane.INFORMATION_MESSAGE);
+			frame.getOrderPanel().getEmail().setText("");
+			frame.getOrderPanel().getItem().setText("");	
+			frame.getOrderPanel().getQuantity().setText("");
+			frame.getOrderPanel().getCVV().setText("");
+			frame.getOrderPanel().getCard().setText("");
 			frame.getCardLayout().show(frame.getContentPane(), b.getHomePanel());
+			
 		}
 		
 		/**
@@ -232,9 +238,8 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		 */
 		else if(a.getSource() == frame.getRegHomePanel().getViewPromotions())
 		{
-			//show the add remove frame
+			//show the promo panel
 			String string = b.viewPromtions();
-			System.out.println(string);
 			frame.getCardLayout().show(frame.getContentPane(), string);
 		}
 		//if remove button on operator home panel pressed is remove document
@@ -310,10 +315,5 @@ public class BuyerListener implements ActionListener, ListSelectionListener{
 		email = s;
 	}
 
-	@Override
-	public void valueChanged(ListSelectionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 }
 

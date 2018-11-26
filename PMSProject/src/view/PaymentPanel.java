@@ -14,11 +14,21 @@ import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
 
+/**
+ * Creates a JPanel where ordinary and registered buyers can see the grand total for their order and make
+ * the payment so the order can be placed
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class PaymentPanel extends JPanel {
 	private JTextField total;
 	private JButton confirmPay;
 	private JButton back;
 	
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons 
+	 * @param listener of type BuyerListener for implementing functionality
+	 */
 	public PaymentPanel(BuyerListener listener) {
 		super();
 		

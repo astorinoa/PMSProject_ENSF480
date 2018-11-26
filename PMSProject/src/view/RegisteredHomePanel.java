@@ -14,8 +14,12 @@ import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
 
-
-
+/**
+ * Creates a JPanel where registered buyers can select the option to search documents, place an order,
+ * view promotions or unsubscribe
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class RegisteredHomePanel extends JPanel{
 	private JButton logout;
 	private JButton search;
@@ -23,6 +27,10 @@ public class RegisteredHomePanel extends JPanel{
 	private JButton viewPromotions;
 	private JButton unsubscribe;
 	
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons
+	 * @param listener of type BuyerListener for implementing functionality
+	 */
 	public RegisteredHomePanel(BuyerListener listener) {
 		super();
 		

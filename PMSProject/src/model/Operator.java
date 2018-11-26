@@ -1,5 +1,10 @@
 package model;
 import java.lang.*;
+
+/**Models an operator, operators are able to add, update and remove documents. 
+ * They have login information stored in the database
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ */
 public class Operator {
 	private String email;
 	private String password;

@@ -21,10 +21,11 @@ import control.LoginListener;
 import javax.swing.border.CompoundBorder;
 
 /**
- * Creates a panel for user login
+ * Creates a JFrame for user login, which creates and shows the next window corresponding to the user logged in
  * @author Alexa Astorino, Shreya Patel, Rae McPhail
  *
  */
+
 public class LoginForm extends JFrame {
 
 	private JTextField userEmail;
@@ -34,9 +35,7 @@ public class LoginForm extends JFrame {
 	private LoginListener listener;
 
 	/**
-	 * Create the frame.
-	 * @param objOut to communicate over socket
-	 * @param objIn to communicate over socket
+	 * Create the Login frame by setting java swing GUI components
 	 */
 	public LoginForm() {
 		listener = new LoginListener(this);
@@ -121,33 +120,20 @@ public class LoginForm extends JFrame {
 	}
 
 
-	/**
-	 * @return the login
-	 */
 	public JButton getLogin() {
 		return login;
 	}	
 	
-	/**
-	 * @return the guest
-	 */
 	public JButton getGuest() {
 		return guest;
 	}
 	
-	/**
-	 * @return the userEmail
-	 */
 	public JTextField getuserEmail() {
 		return userEmail;
 	}
 	
-	/**
-	 * @return the passwordField
-	 */
 	public JPasswordField getPasswordField() {
 		return passwordField;
 	}
-	
-	
+		
 }

@@ -22,6 +22,10 @@ public class Buyer {
 		strategy = s;
 	}
 	
+	/**
+	 * Allows the buyer to change from being registered or ordinary dynamically using Strategy pattern
+	 * @param bs the buyer strategy
+	 */
 	public void setStrategy(BuyerStrategy bs) {
 		strategy = bs;
 	}
@@ -30,29 +34,29 @@ public class Buyer {
 	/**
 	 * allows buyer to view promotions, 
 	 * different method is called depending on which strategy is being used
-	 * @return 
+	 * @return a string that the buyer will view, either the list of promotions if they are registered
+	 * 			or a message telling them to register to see promotions if they are ordinary
 	 */
 	public String viewPromtions ()
 	{
 		return strategy.viewPromotions();
 	}
 	
+	
 	/**
-	 * different method is called depending on which strategy is being used,
-	 * registered buyers become ordinary buyers when this method is called
-	 * ordinary buyers become registered buyers when this method is called
+	 * Communicates which strategy is being used, this method was primarily implemented to avoid violating package dependencies
+	 * @return 1 if the buyer strategy is registered, 0 if the buyer strategy is ordinary
 	 */
-	public void changeSubscriptionStatus ()
-	{
-		strategy.changeSubscriptionStatus();
-	}
-	
-	
 	public int getStrategyNumber()
 	{
 		return strategy.getNumber();
 	}
 	
+	/**
+	 * Communicates which home panel to return to based on the strategy implemented
+	 * @return Registered if the buyer strategy is registered buyer, returns ordinary if the buyer strategy is ordinary.
+	 * 			The string is used in the GUI to determine which panel to display
+	 */
 	public String getHomePanel()
 	{
 		return strategy.getHomePanel();

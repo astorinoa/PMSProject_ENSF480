@@ -4,7 +4,7 @@ import view.OrdinaryHomePanel;
 import view.RegisteredHomePanel;
 
 /**
- * creates an object of type OrdinaryBuyer which is a strategy for BuyerStrategy. 
+ * creates an object of type OrdinaryBuyerStra which is a strategy for BuyerStrategy. 
  * Ordinary buyers cannot see promotions and will be told to register in 
  * order to see promotions. Ordinary buyers become registered buyers when 
  * changeSubscriptionstatusis called.
@@ -13,24 +13,25 @@ import view.RegisteredHomePanel;
  */
 public class OrdinaryBuyerStrategy implements BuyerStrategy {
 	
-
+	/**
+	 * @return string that the ordinary buyer views when they try to view promotions
+	 */
 	public String viewPromotions()
 	{
-		return "Please register to view promotions!";
-		
+		return "Please register to view promotions!";	
 	}
 	
-
-	public void changeSubscriptionStatus()
-	{
-		//shows "Not a registered buyer"
-	}
-	
+	/**
+	 *  @ returns 0 to communicate that the strategy is ordinary buyer
+	 */
 	public int getNumber()
 	{
 		return 0;
 	}
 	
+	/**
+	 *  @ returns name of the ordinary buyer home panel
+	 */
 	public String getHomePanel()
 	{
 		return "Ordinary Home";

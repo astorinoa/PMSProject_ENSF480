@@ -17,6 +17,11 @@ import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
 
+/**
+ * Creates a JPanel where ordinary buyers can register to become registered buyers
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class RegPanel extends JPanel{
 	private JTextField fName;
 	private JTextField lName;
@@ -25,6 +30,10 @@ public class RegPanel extends JPanel{
 	private JButton register;
 	private JButton back;
 
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons
+	 * @param listener of type BuyerListener for implementing functionality
+	 */
 	public RegPanel(BuyerListener listener) {
 		super();
 		

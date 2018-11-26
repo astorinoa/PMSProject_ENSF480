@@ -17,6 +17,12 @@ import javax.swing.border.EmptyBorder;
 
 import control.BuyerListener;
 
+/**
+ * Creates a JPanel where ordinary and registered buyers place and order to purchase documents by
+ * entering the document they want and how many as well as their payment information
+ * @author Alexa Astorino, Shreya Patel, Rae McPhail
+ *
+ */
 public class PlaceOrderPanel extends JPanel {
 	private JTextField email;
 	private JTextField item;
@@ -29,6 +35,10 @@ public class PlaceOrderPanel extends JPanel {
 	private JCheckBox mc;
 	private JCheckBox am;
 
+	/**
+	 * Creates and sets java swing GUI components, adding listeners to JButtons 
+	 * @param listener of type BuyerListener for implementing functionality
+	 */
 	public PlaceOrderPanel(BuyerListener listener) {
 		super();
 		
@@ -166,29 +176,29 @@ public class PlaceOrderPanel extends JPanel {
 		return pay;
 	}
 	
-	public String getEmail()
+	public JTextField getEmail()
 	{
-		return email.getText();
+		return email;
 	}
 	
-	public String getItem()
+	public JTextField getItem()
 	{
-		return item.getText();
+		return item;
 	}
 	
-	public String getQuantity()
+	public JTextField getQuantity()
 	{
-		return quantity.getText();
+		return quantity;
 	}
 	
-	public String getCard()
+	public JTextField getCard()
 	{
-		return card.getText();
+		return card;
 	}
 	
-	public String getCVV()
+	public JTextField getCVV()
 	{
-		return cvv.getText();
+		return cvv;
 	}
 	
 	public JButton getBack()
